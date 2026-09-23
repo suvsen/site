@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Suvankar Sen | PhD Researcher</title>
+
+    <meta name="description"
+          content="Academic portfolio of Suvankar Sen, PhD student in Electrical Engineering at UNIST, working on metasurfaces, inverse design, hyperspectral imaging and optical materials.">
+
+    <meta name="author" content="Suvankar Sen">
+
+    <style>
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        :root {
+            --bg: #080b12;
+            --bg-soft: #0e131d;
+            --card: rgba(255, 255, 255, 0.045);
+            --card-hover: rgba(255, 255, 255, 0.075);
+            --border: rgba(255, 255, 255, 0.10);
+
+            --text: #f2f5f8;
+            --muted: #9da8b7;
+
+            --accent: #7dd3fc;
+            --accent-2: #a78bfa;
+            --accent-3: #67e8f9;
+
+            --max-width: 1180px;
+
+            --radius: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 80% 10%,
+                    rgba(125, 211, 252, 0.09),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 10% 40%,
+                    rgba(167, 139, 250, 0.07),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(100% - 40px, var(--max-width));
+            margin: auto;
+        }
+
+        section {
+            padding: 110px 0;
+            scroll-margin-top: 80px;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(8, 11, 18, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .nav-inner {
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 120px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 600;
+
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+
+            margin-bottom: 20px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(3.3rem, 8vw, 6.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.065em;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            display: block;
+
+            background: linear-gradient(
+                120deg,
+                var(--accent),
+                var(--accent-2),
+                var(--accent-3)
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            color: var(--muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-description strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 20px;
+
+            border-radius: 999px;
+            border: 1px solid var(--border);
+
+            font-size: 0.9rem;
+            font-weight: 600;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .button.primary {
+            background: var(--text);
+            color: #080b12;
+            border-color: var(--text);
+        }
+
+        .button.primary:hover {
+            background: white;
+        }
+
+        /* Profile image */
+
+        .profile-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-ring {
+            width: min(340px, 75vw);
+            aspect-ratio: 1;
+
+            padding: 8px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-2),
+                    transparent 70%
+                );
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 6px solid var(--bg);
+            background: var(--bg-soft);
+        }
+
+        .profile-decoration {
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            border: 1px solid rgba(125,211,252,0.3);
+            border-radius: 50%;
+
+            right: -15px;
+            bottom: -15px;
+
+            z-index: -1;
+        }
+
+        /* =========================================================
+           SECTION HEADERS
+        ========================================================= */
+
+        .section-heading {
+            margin-bottom: 55px;
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+        }
+
+        .section-heading h2 {
+            margin-top: 8px;
+
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            letter-spacing: -0.045em;
+            line-height: 1.05;
+        }
+
+        .section-heading p {
+            margin-top: 14px;
+
+            max-width: 650px;
+
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .glass-card {
+            padding: 32px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: var(--card);
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            background: var(--card-hover);
+        }
+
+        .glass-card p {
+            color: var(--muted);
+        }
+
+        .glass-card p + p {
+            margin-top: 18px;
+        }
+
+        /* =========================================================
+           RESEARCH INTERESTS
+        ========================================================= */
+
+        .research-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .research-card {
+            min-height: 190px;
+
+            padding: 26px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.055),
+                    rgba(255,255,255,0.015)
+                );
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(125,211,252,0.35);
+        }
+
+        .research-icon {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .research-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .research-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* =========================================================
+           TIMELINE
+        ========================================================= */
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            bottom: 5px;
+
+            width: 1px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--accent),
+                    rgba(255,255,255,0.05)
+                );
+        }
+
+        .timeline-item {
+            position: relative;
+
+            padding-left: 45px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            left: 0;
+            top: 8px;
+
+            width: 17px;
+            height: 17px;
+
+            border-radius: 50%;
+
+            background: var(--bg);
+            border: 3px solid var(--accent);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 700;
+
+            letter-spacing: 0.06em;
+
+            margin-bottom: 7px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-place {
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            max-width: 750px;
+        }
+
+        /* =========================================================
+           PUBLICATIONS
+        ========================================================= */
+
+        .publication-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .publication {
+            padding: 27px 30px;
+
+            display: grid;
+            grid-template-columns: 55px 1fr;
+            gap: 22px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: var(--card);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .publication:hover {
+            transform: translateX(5px);
+            background: var(--card-hover);
+        }
+
+        .publication-number {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 0.9rem;
+            padding-top: 3px;
+        }
+
+        .publication h3 {
+            font-size: 1rem;
+            line-height: 1.55;
+            margin-bottom: 7px;
+        }
+
+        .publication p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-group {
+            padding: 28px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: var(--card);
+        }
+
+        .skill-group h3 {
+            font-size: 1rem;
+            margin-bottom: 17px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 6px 10px;
+
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.055);
+            border: 1px solid rgba(255,255,255,0.07);
+
+            color: var(--muted);
+
+            font-size: 0.78rem;
+        }
+
+        /* =========================================================
+           ACHIEVEMENTS
+        ========================================================= */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .achievement {
+            padding: 25px;
+
+            border-left: 2px solid var(--accent);
+
+            background: var(--card);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .achievement strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .achievement p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-card {
+            padding: 60px;
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+            border-radius: 28px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(125,211,252,0.09),
+                    transparent 55%
+                ),
+                var(--card);
+        }
+
+        .contact-card h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: -0.04em;
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 0;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+            font-size: 0.82rem;
+
+            text-align: center;
+        }
+
+        /* =========================================================
+           ANIMATIONS
+        ========================================================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .profile-wrapper {
+            animation: fadeUp 0.9s 0.15s ease both;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 55px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                order: -1;
+            }
+
+            .research-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            section {
+                padding: 80px 0;
+            }
+
+            .container {
+                width: min(100% - 28px, var(--max-width));
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .about-grid,
+            .achievement-grid,
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .publication {
+                grid-template-columns: 1fr;
+                gap: 7px;
+            }
+
+            .publication-number {
+                padding: 0;
+            }
+
+            .contact-card {
+                padding: 38px 22px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav>
+        <div class="container nav-inner">
+
+            <a href="#home" class="logo">
+                Suvankar<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        PhD Researcher · Electrical Engineering
+                    </div>
+
+                    <h1>
+                        Suvankar
+                        <span>Sen</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        I am a <strong>PhD student in Electrical Engineering</strong>
+                        at the
+                        <strong>Ulsan National Institute of Science and Technology
+                        (UNIST)</strong>,
+                        South Korea, where I started my doctoral research in
+                        September 2026.
+                    </p>
+
+                    <p class="hero-description">
+                        My research interests lie at the intersection of
+                        <strong>metasurfaces, inverse design, optical materials,
+                        hyperspectral imaging and computational optics</strong>.
+                        I am interested in using computational and experimental
+                        approaches to develop new optical and optoelectronic
+                        systems.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#research" class="button primary">
+                            Explore my research
+                        </a>
+
+                        <a href="mailto:sen.suvankar1994@gmail.com"
+                           class="button">
+                            Get in touch
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-wrapper">
+
+                    <div class="profile-ring">
+
+                        <!--
+                            IMPORTANT:
+                            Keep Profile-Pic.png in the same repository
+                            directory as index.html.
+                        -->
+
+                        <img
+                            src="Profile-Pic.png"
+                            alt="Portrait of Suvankar Sen"
+                            class="profile-image"
+                        >
+
+                    </div>
+
+                    <div class="profile-decoration"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <div class="section-number">01 — ABOUT</div>
+
+                    <h2>
+                        Researcher.<br>
+                        Engineer. Creator.
+                    </h2>
+
+                    <p>
+                        My background spans electrical engineering,
+                        nanotechnology, optoelectronics and experimental
+                        materials research.
+                    </p>
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="glass-card">
+
+                        <p>
+                            My academic journey began with a Bachelor's degree
+                            in Electrical and Electronics Engineering from
+                            Biju Patnaik University of Technology, followed by
+                            a Master's degree in Nanotechnology from Vellore
+                            Institute of Technology.
+                        </p>
+
+                        <p>
+                            During my research career I have worked with
+                            nanomaterials, perovskite solar cells,
+                            phase-change materials, thin films and
+                            optoelectronic devices.
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card">
+
+                        <p>
+                            I am currently pursuing a PhD in Electrical
+                            Engineering at UNIST in South Korea, beginning in
+                            September 2026.
+                        </p>
+
+                        <p>
+                            My current interests are moving toward
+                            computationally designed optical systems,
+                            particularly metasurfaces, inverse design,
+                            hyperspectral imaging and related
+                            meta-optical technologies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RESEARCH
+        ====================================================== -->
+
+        <section id="research">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">02 — RESEARCH</div>
+
+                    <h2>What I am interested in.</h2>
+
+                    <p>
+                        Exploring the interface between electromagnetic
+                        engineering, nanophotonics, computational methods
+                        and intelligent optical systems.
+                    </p>
+
+                </div>
+
+
+                <div class="research-grid">
+
+                    <div class="research-card">
+
+                        <div class="research-icon">◈</div>
+
+                        <h3>Metasurfaces</h3>
+
+                        <p>
+                            Engineered subwavelength structures for controlling
+                            light and enabling compact optical functionality.
+                        </p>
+
+                    </div>
+
+
+                    <div class="research-card">
+
+                        <div class="research-icon">⌁</div>
+
+                        <h3>Inverse Design</h3>
+
+                        <p>
+                            Computational approaches for discovering optical
+                            structures from desired electromagnetic responses.
+                        </p>
+
+                    </div>
+
+
+                    <div class="research-card">
+
+                        <div class="research-icon">◌</div>
+
+                        <h3>Hyperspectral Imaging</h3>
+
+                        <p>
+                            Optical systems capable of capturing and exploiting
+                            rich spectral information for sensing and imaging.
+                        </p>
+
+                    </div>
+
+
+                    <div class="research-card">
+
+                        <div class="research-icon">✦</div>
+
+                        <h3>Optical & Electronic Materials</h3>
+
+                        <p>
+                            Materials and devices for next-generation
+                            optoelectronic and photonic technologies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EDUCATION & EXPERIENCE
+        ====================================================== -->
+
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">03 — JOURNEY</div>
+
+                    <h2>Education & experience.</h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <!-- UNIST -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            SEPTEMBER 2026 — PRESENT
+                        </div>
+
+                        <h3>
+                            PhD in Electrical Engineering
+                        </h3>
+
+                        <div class="timeline-place">
+                            Ulsan National Institute of Science and Technology
+                            (UNIST), South Korea
+                        </div>
+
+                        <p>
+                            Doctoral research focused on emerging optical and
+                            electromagnetic technologies, with interests
+                            including metasurfaces, inverse design and
+                            hyperspectral imaging.
+                        </p>
+
+                    </div>
+
+
+                    <!-- RMIT -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            2021 — 2023
+                        </div>
+
+                        <h3>
+                            Researcher in Electrical & Electronic Engineering
+                        </h3>
+
+                        <div class="timeline-place">
+                            RMIT University, Australia
+                        </div>
+
+                        <p>
+                            Research involving vanadium dioxide and other
+                            phase-change materials for optoelectronic
+                            applications.
+                        </p>
+
+                    </div>
+
+
+                    <!-- VIT -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            2018 — 2020
+                        </div>
+
+                        <h3>
+                            Master of Technology in Nanotechnology
+                        </h3>
+
+                        <div class="timeline-place">
+                            Vellore Institute of Technology, India
+                        </div>
+
+                        <p>
+                            CGPA: 9.47 / 10 · Second rank in class.
+                        </p>
+
+                    </div>
+
+
+                    <!-- QUT -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            RESEARCH EXPERIENCE
+                        </div>
+
+                        <h3>
+                            Visiting Research Student
+                        </h3>
+
+                        <div class="timeline-place">
+                            Queensland University of Technology, Australia
+                        </div>
+
+                        <p>
+                            Research involving nanostructures for photovoltaic
+                            applications, perovskite solar cells and
+                            plasma-assisted synthesis of nanomaterials.
+                        </p>
+
+                    </div>
+
+
+                    <!-- BPUT -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            2012 — 2016
+                        </div>
+
+                        <h3>
+                            Bachelor of Technology in Electrical &
+                            Electronics Engineering
+                        </h3>
+
+                        <div class="timeline-place">
+                            Biju Patnaik University of Technology, India
+                        </div>
+
+                        <p>
+                            CGPA: 8.43 / 10 · First rank in class.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PUBLICATIONS
+        ====================================================== -->
+
+        <section id="publications">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">04 — PUBLICATIONS</div>
+
+                    <h2>Selected publications.</h2>
+
+                    <p>
+                        A selection of my research work across optoelectronics,
+                        nanomaterials, perovskites and phase-change materials.
+                    </p>
+
+                </div>
+
+
+                <div class="publication-list">
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">01</div>
+
+                        <div>
+
+                            <h3>
+                                Miniaturized Optical Glucose Sensor Using
+                                1600–1700 nm Near-Infrared Light
+                            </h3>
+
+                            <p>
+                                Advanced Sensor Research, 2024, 2300160.
+                                Mingjie Yang et al., including Suvankar Sen.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">02</div>
+
+                        <div>
+
+                            <h3>
+                                Tunability of Sb₂Se₃ Phase Change Thin Films
+                                for Multi-Domain Optoelectronics
+                            </h3>
+
+                            <p>
+                                Accepted by Applied Materials Today.
+                                Second author.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">03</div>
+
+                        <div>
+
+                            <h3>
+                                Probing Ultrafast Spectroscopic Analysis of
+                                Intercalation in Topological Materials:
+                                Insights into Carrier and Phonon Dynamics via
+                                Comprehensive Structural Characterization of
+                                AxBi₂Se₃
+                            </h3>
+
+                            <p>
+                                Submitted to ACS Applied Optical Materials.
+                                Second author.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">04</div>
+
+                        <div>
+
+                            <h3>
+                                Tin-based Eco-Friendly Perovskites for the
+                                Sustainable Future
+                            </h3>
+
+                            <p>
+                                Advanced Energy & Sustainability Research,
+                                2023, 4, 2300110. First author.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">05</div>
+
+                        <div>
+
+                            <h3>
+                                Hybrid 2D Perovskite and Red Emitting Carbon
+                                Dot Composite for Improved Stability and
+                                Efficiency of LEDs
+                            </h3>
+
+                            <p>
+                                Nanoscale, 2023, 15.6, 2659–2666.
+                                Co-author.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">06</div>
+
+                        <div>
+
+                            <h3>
+                                Monochromatic Blue and Switchable Blue-Green
+                                Carbon Quantum Dots by Room-Temperature Air
+                                Plasma Processing
+                            </h3>
+
+                            <p>
+                                Advanced Materials Technologies, 2022,
+                                7.4, 2100586. Co-author.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">07</div>
+
+                        <div>
+
+                            <h3>
+                                Efficiency Enhancement of Low-Cost Metal Free
+                                Dye Sensitized Solar Cells via Non-Thermal
+                                Atmospheric Pressure Plasma Surface Treatment
+                            </h3>
+
+                            <p>
+                                Solar Energy, 2021, 215, 367–374.
+                                Second author.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-number">08</div>
+
+                        <div>
+
+                            <h3>
+                                Study of Chemical Changes Occurring in
+                                Cs-Halide Perovskites Under Atmospheric Plasma
+                                Treatment Using TOF-SIMS for Optoelectronic
+                                Applications
+                            </h3>
+
+                            <p>
+                                Materials Today Proceedings, 2020.
+                                First author. Recipient of the ACS Energy
+                                Letters Best Oral Presentation Award.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">05 — TOOLKIT</div>
+
+                    <h2>Skills & experience.</h2>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+
+                    <div class="skill-group">
+
+                        <h3>Characterization</h3>
+
+                        <div class="tags">
+
+                            <span class="tag">SEM / EDS</span>
+                            <span class="tag">TEM / STEM</span>
+                            <span class="tag">AFM</span>
+                            <span class="tag">XRD</span>
+                            <span class="tag">XPS</span>
+                            <span class="tag">STM</span>
+                            <span class="tag">TOF-SIMS</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-group">
+
+                        <h3>Fabrication & Materials</h3>
+
+                        <div class="tags">
+
+                            <span class="tag">Photolithography</span>
+                            <span class="tag">PVD</span>
+                            <span class="tag">Sputtering</span>
+                            <span class="tag">Electron Beam Deposition</span>
+                            <span class="tag">Spin Coating</span>
+                            <span class="tag">Nanomaterial Synthesis</span>
+                            <span class="tag">Cleanroom Procedures</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-group">
+
+                        <h3>Software & Programming</h3>
+
+                        <div class="tags">
+
+                            <span class="tag">Python</span>
+                            <span class="tag">MATLAB</span>
+                            <span class="tag">C / C++</span>
+                            <span class="tag">LaTeX</span>
+                            <span class="tag">COMSOL</span>
+                            <span class="tag">TCAD</span>
+                            <span class="tag">Xcode</span>
+                            <span class="tag">VESTA</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-group">
+
+                        <h3>Laboratory</h3>
+
+                        <div class="tags">
+
+                            <span class="tag">UV-Vis Spectroscopy</span>
+                            <span class="tag">Raman Spectroscopy</span>
+                            <span class="tag">Electrochemistry</span>
+                            <span class="tag">Spray Pyrolysis</span>
+                            <span class="tag">Optical Microscopy</span>
+                            <span class="tag">Electronic Testing</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-group">
+
+                        <h3>Professional</h3>
+
+                        <div class="tags">
+
+                            <span class="tag">Communication</span>
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Team Building</span>
+                            <span class="tag">Management</span>
+                            <span class="tag">Scientific Writing</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-group">
+
+                        <h3>Languages</h3>
+
+                        <div class="tags">
+
+                            <span class="tag">English</span>
+                            <span class="tag">Hindi</span>
+                            <span class="tag">Bengali</span>
+                            <span class="tag">Odia</span>
+                            <span class="tag">German · Beginner</span>
+                            <span class="tag">Japanese · Beginner</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ACHIEVEMENTS
+        ====================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-number">06 — HIGHLIGHTS</div>
+
+                    <h2>A few milestones.</h2>
+
+                </div>
+
+
+                <div class="achievement-grid">
+
+
+                    <div class="achievement">
+
+                        <strong>
+                            Best Oral Presentation Award
+                        </strong>
+
+                        <p>
+                            American Chemical Society Energy Letters —
+                            VCAN 2020.
+                        </p>
+
+                    </div>
+
+
+                    <div class="achievement">
+
+                        <strong>
+                            Best Science Communicator
+                        </strong>
+
+                        <p>
+                            TMOS Conference 2022.
+                        </p>
+
+                    </div>
+
+
+                    <div class="achievement">
+
+                        <strong>
+                            Apple Foundation Program
+                        </strong>
+
+                        <p>
+                            Part of a group that developed a prototype app
+                            at RMIT University in 2023.
+                        </p>
+
+                    </div>
+
+
+                    <div class="achievement">
+
+                        <strong>
+                            Best Volunteer Award Nomination
+                        </strong>
+
+                        <p>
+                            Nominated by RMIT Creatives in 2024.
+                        </p>
+
+                    </div>
+
+
+                    <div class="achievement">
+
+                        <strong>
+                            GATE Qualified
+                        </strong>
+
+                        <p>
+                            All-India Rank 14,889 among 121,383 candidates.
+                        </p>
+
+                    </div>
+
+
+                    <div class="achievement">
+
+                        <strong>
+                            Academic Achievement
+                        </strong>
+
+                        <p>
+                            Second in Master's batch in the second semester
+                            with a GPA of 9.47.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="contact-card">
+
+                    <div class="section-number">
+                        07 — CONTACT
+                    </div>
+
+                    <h2>
+                        Let's connect.
+                    </h2>
+
+                    <p>
+                        Interested in research, photonics, materials,
+                        computational optics, or simply exchanging ideas?
+                        Feel free to reach out.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <a
+                            href="mailto:sen.suvankar1994@gmail.com"
+                            class="button primary"
+                        >
+                            Email me
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/SuvankarSen"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="button"
+                        >
+                            LinkedIn
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Suvankar Sen · PhD Researcher in Electrical Engineering
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
