@@ -64,15 +64,18 @@
 </div>
 
 <script src="site.js"></script>
+<!-- Edit this list to make it yours: ["quote", "who"]. The mind map reads it too. -->
+<script type="application/json" id="quotes-data">
+[
+  ["If I have seen further it is by standing on the shoulders of Giants.", "Isaac Newton, letter to Robert Hooke, 1675"],
+  ["Nothing is too wonderful to be true, if it be consistent with the laws of nature.", "Michael Faraday, laboratory diary, 1849"],
+  ["Faith is the bird that feels the light and sings when the dawn is still dark.", "Rabindranath Tagore, Fireflies, 1928"],
+  ["No man ever steps in the same river twice.", "After Heraclitus"]
+]
+</script>
 <script>
 (() => {
-  /* Edit this list to make it yours: [quote, who]. */
-  const Q = [
-    ["If I have seen further it is by standing on the shoulders of Giants.", "Isaac Newton, letter to Robert Hooke, 1675"],
-    ["Nothing is too wonderful to be true, if it be consistent with the laws of nature.", "Michael Faraday, laboratory diary, 1849"],
-    ["Faith is the bird that feels the light and sings when the dawn is still dark.", "Rabindranath Tagore, Fireflies, 1928"],
-    ["No man ever steps in the same river twice.", "After Heraclitus"]
-  ];
+  const Q = JSON.parse(document.getElementById("quotes-data").textContent);
   const list = document.getElementById("qList");
   Q.forEach(([q, w]) => {
     const f = document.createElement("figure");

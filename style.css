@@ -232,6 +232,11 @@ ul.news li.hidden { display: none; }
 .card-note b { display: block; color: var(--ink); font-weight: 500; font-size: 1.05rem; margin-bottom: .15rem; }
 .card-note .k { font-family: var(--mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--plum); }
 .mm-hint { position: absolute; right: 14px; top: 12px; font-family: var(--mono); font-size: .68rem; color: var(--grey); pointer-events: none; }
+.mm-status { position: absolute; right: 12px; top: 30px; font-family: var(--mono); font-size: .64rem; color: var(--grey); pointer-events: none; text-align: right; max-width: 60%; background: color-mix(in srgb, var(--card) 85%, transparent); padding: 1px 5px; border-radius: 3px; }
+.mm-intro { font-size: 1rem; margin-bottom: 1.1rem; }
+.card-note .cnt { display: block; font-family: var(--mono); font-size: .7rem; color: var(--grey); margin: .4rem 0 .15rem; }
+.mm-legend .ring { width: 9px; height: 9px; border: 1.5px solid var(--rub); background: none; }
+@media (max-width: 560px) { .mm-status { display: none; } }
 
 /* ---------- Publications ---------- */
 .pubs { list-style: none; border-top: 1px solid var(--hair); }

@@ -154,11 +154,13 @@
 
   <!-- ===== Mind map ===== -->
   <section id="mindmap" class="reveal">
-    <h2>Mind map <span class="more">drag · click · add a thought</span></h2>
+    <h2>Mind map <span class="more">click an idea to unfold its work</span></h2>
+    <p class="col muted mm-intro">A living map of how my work connects. It rebuilds itself from this site on every visit: papers, musings, artworks and quotes attach to the ideas they talk about, ideas grow as work piles up, new hashtags sprout new ideas, and whatever I list under <a href="#now">Now</a> glows as current focus.</p>
     <div class="mm">
       <canvas id="mm" aria-label="Interactive map of how my research and interests connect. Drag nodes, click one for a note, or add your own word below."></canvas>
       <div class="card-note" id="mmCard" role="status" aria-live="polite"></div>
-      <span class="mm-hint" id="mmHint">click a node</span>
+      <span class="mm-hint" id="mmHint">click an idea</span>
+      <span class="mm-status" id="mmStatus"></span>
       <div class="mm-bar">
         <form id="mmForm">
           <input id="mmInput" type="text" maxlength="28" placeholder="Add a thought: 'rainbows', 'coffee', 'AI'…" aria-label="Add a word to the map" autocomplete="off">
@@ -169,6 +171,8 @@
           <span><i style="background:var(--plum)"></i>now</span>
           <span><i style="background:#6f8a66"></i>before</span>
           <span><i style="background:#b48434"></i>off duty</span>
+          <span><i style="background:#3f86a0"></i>new thread</span>
+          <span><i class="ring"></i>current focus</span>
           <button type="button" id="mmShake">shake</button>
         </div>
       </div>
