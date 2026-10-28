@@ -82,7 +82,7 @@
   const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const hashf = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return ((h >>> 0) % 1000) / 1000; };
   const pretty = t => t.replace(/[-_]+/g, " ").replace(/^\w/, c => c.toUpperCase());
-  const parseDate = s => { const m = (s || "").match(/(20\d\d)(?:\D{1,3}(\d{1,2}))?/); return m ? new Date(+m[1], m[2] ? +m[2] - 1 : 0, 15) : null; };
+  const parseDate = s => { const m = (s || "").match(/(20\d\d)(?:\D{1,3}(\d{1,2}))?/); return m ? new Date(+m[1], m[2] ? +m[2] - 1 : 6, 15) : null; };
   const clip = (s, n) => s.length > n ? s.slice(0, n - 1) + "…" : s;
 
   /* ---------- graph state ---------- */
