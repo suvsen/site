@@ -128,7 +128,7 @@
       if (!p.id) p.id = "pub-" + (i + 1);
       const t = p.querySelector(".t")?.textContent.trim() || "Paper";
       found.push({ kind: "paper", title: t, href: "#" + p.id, date: parseDate(p.querySelector(".v")?.textContent),
-        text: t + " " + (p.querySelector(".desc")?.textContent || "") + " " + (p.querySelector(".tag")?.textContent || ""),
+        text: t + " " + (p.querySelector(".desc")?.textContent || "") + " " + (p.querySelector(".tag")?.textContent || "") + " " + [...p.querySelectorAll(".kw li")].map(k => k.textContent).join(" "),
         tags: (p.dataset.tags || "").split(/[\s,]+/).filter(Boolean) });
     });
     return found;
