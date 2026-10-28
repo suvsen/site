@@ -41,6 +41,9 @@
          picture; the rows rearrange themselves. data-tags joins it to the mind map. -->
   </div>
 
+  <div class="drift" id="drift" aria-hidden="true"></div>
+  <p class="drift-note" aria-hidden="true">hover to pause · click a piece to look closer</p>
+
   <section style="padding-top:1rem">
     <h2 class="gal-h">Paintings <span>colour, on canvas</span></h2>
     <div class="gallery paintings">
@@ -72,9 +75,9 @@
         <div class="pic"><img src="images/art/koi.jpg" alt="Koi" width="1032" height="1280" loading="lazy"></div>
         <figcaption><div class="t">Koi</div><div class="m">ink</div></figcaption>
       </figure>
-      <figure class="art" tabindex="0" style="--r:0.639" data-title="Kraken" data-meta="ink" data-tags="drawing">
-        <div class="pic"><img src="images/art/kraken.jpg" alt="Kraken" width="815" height="1276" loading="lazy"></div>
-        <figcaption><div class="t">Kraken</div><div class="m">ink</div></figcaption>
+      <figure class="art" tabindex="0" style="--r:0.639" data-title="Octo-heart" data-meta="pen" data-tags="drawing">
+        <div class="pic"><img src="images/art/kraken.jpg" alt="Octo-heart" width="815" height="1276" loading="lazy"></div>
+        <figcaption><div class="t">Octo-heart</div><div class="m">pen</div></figcaption>
       </figure>
       <figure class="art" tabindex="0" style="--r:0.708" data-title="Cat" data-meta="pencil" data-tags="drawing">
         <div class="pic"><img src="images/art/cat.jpg" alt="Cat" width="906" height="1280" loading="lazy"></div>
@@ -156,6 +159,34 @@
     cap.textContent = f.dataset.title + " · " + f.dataset.meta; lb.classList.add("show");
   };
   const close = () => { lb.classList.remove("show"); cur = -1; };
+  // Drifting band: columns glide in opposite directions; built from the gallery, so it updates itself.
+  const drift = document.getElementById("drift");
+  const buildDrift = () => {
+    const n = window.matchMedia("(max-width: 640px)").matches ? 2 : window.matchMedia("(max-width: 960px)").matches ? 3 : 4;
+    if (drift.dataset.n === String(n)) return;
+    drift.dataset.n = n; drift.innerHTML = "";
+    const cols = Array.from({ length: n }, (_, c) => {
+      const col = document.createElement("div"); col.className = "drift-col " + (c % 2 ? "up" : "down");
+      const tr = document.createElement("div"); tr.className = "drift-track"; col.appendChild(tr); drift.appendChild(col); return tr;
+    });
+    // deal paintings and drawings round the columns, then tuck each painting between drawings
+    const P = arts.filter(f => f.closest(".paintings")), D = arts.filter(f => !f.closest(".paintings"));
+    const lists = cols.map(() => []);
+    D.forEach((f, k) => lists[k % n].push(f));
+    P.forEach((f, j) => { const L = lists[j % n]; L.splice(Math.min(L.length, 1 + 2 * Math.floor(j / n)), 0, f); });
+    lists.forEach((L, c) => L.forEach(f => {
+      const src = f.querySelector("img"); if (!src) return;
+      const im = document.createElement("img"); im.src = src.getAttribute("src"); im.alt = ""; im.style.aspectRatio = f.style.getPropertyValue("--r");
+      im.addEventListener("click", () => open(arts.indexOf(f)));
+      cols[c].appendChild(im);
+    }));
+    cols.forEach((tr, c) => {
+      Array.from(tr.children).forEach(im => { const d = im.cloneNode(); d.addEventListener("click", () => im.click()); tr.appendChild(d); });
+      requestAnimationFrame(() => { tr.style.animationDuration = (tr.scrollHeight / 2 / (16 + c * 3)) + "s"; });
+    });
+  };
+  buildDrift(); window.addEventListener("resize", buildDrift);
+
   arts.forEach((f, i) => {
     f.addEventListener("click", () => open(i));
     f.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } });
