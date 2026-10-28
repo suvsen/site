@@ -36,43 +36,69 @@
     <p class="kicker">&gt; off duty</p>
     <h1>Artworks</h1>
     <p>Painting and drawing are where I play with light and colour from the other side: not measuring them, just arranging them until they feel right.</p>
-    <!-- Placeholder tiles. To add a piece: put the image in an art/ folder, then in a tile
-         replace the coloured <div> with <img src="art/your-file.jpg" alt="Title">
-         and edit data-title, data-meta and the caption text. Then delete data-placeholder
-         and add data-tags="watercolour light" so the piece joins the mind map. -->
+    <!-- To add a piece: put the image in images/art/, copy any <figure> below into the right
+         gallery and edit it. Set --r to the image's width ÷ height, so the frame fits the
+         picture; the rows rearrange themselves. data-tags joins it to the mind map. -->
   </div>
 
   <section style="padding-top:1rem">
-    <div class="gallery" id="gallery">
-      <figure class="art" tabindex="0" data-placeholder data-title="Untitled I" data-meta="medium · year">
-        <div class="pic"><div style="background:linear-gradient(160deg,#e9c6c0,#b98fae 55%,#5f4b63)"></div></div>
-        <figcaption><div class="t">Untitled I</div><div class="m">medium · year</div></figcaption>
+    <h2 class="gal-h">Paintings <span>colour, on canvas</span></h2>
+    <div class="gallery paintings">
+      <figure class="art" tabindex="0" style="--r:1.233" data-title="Red tree, yellow moon" data-meta="acrylic on canvas" data-tags="painting">
+        <div class="pic"><img src="images/art/red-tree.jpg" alt="Red tree, yellow moon" width="1280" height="1038" loading="lazy"></div>
+        <figcaption><div class="t">Red tree, yellow moon</div><div class="m">acrylic on canvas</div></figcaption>
       </figure>
-      <figure class="art" tabindex="0" data-placeholder data-title="Untitled II" data-meta="medium · year">
-        <div class="pic"><div style="background:radial-gradient(circle at 30% 30%,#f5d6a0,#d8743a 45%,#5b3a2c)"></div></div>
-        <figcaption><div class="t">Untitled II</div><div class="m">medium · year</div></figcaption>
+      <figure class="art" tabindex="0" style="--r:1.295" data-title="Two fish" data-meta="acrylic on canvas" data-tags="painting">
+        <div class="pic"><img src="images/art/two-fish.jpg" alt="Two fish" width="1216" height="939" loading="lazy"></div>
+        <figcaption><div class="t">Two fish</div><div class="m">acrylic on canvas</div></figcaption>
       </figure>
-      <figure class="art" tabindex="0" data-placeholder data-title="Untitled III" data-meta="medium · year">
-        <div class="pic"><div style="background:linear-gradient(200deg,#bfe0c4,#6f8a66 60%,#2f3b2c)"></div></div>
-        <figcaption><div class="t">Untitled III</div><div class="m">medium · year</div></figcaption>
+      <figure class="art" tabindex="0" style="--r:1.35" data-title="After Van Gogh, The Starry Night" data-meta="acrylic on canvas · a study" data-tags="painting light">
+        <div class="pic"><img src="images/art/starry-night.jpg" alt="After Van Gogh, The Starry Night" width="1272" height="942" loading="lazy"></div>
+        <figcaption><div class="t">After Van Gogh, The Starry Night</div><div class="m">acrylic on canvas · a study</div></figcaption>
       </figure>
-      <figure class="art" tabindex="0" data-placeholder data-title="Untitled IV" data-meta="medium · year">
-        <div class="pic"><div style="background:conic-gradient(from 90deg at 50% 60%,#a9d6e5,#c9b8ec,#f2b8c6,#a9d6e5)"></div></div>
-        <figcaption><div class="t">Untitled IV</div><div class="m">medium · year</div></figcaption>
+    </div>
+
+    <h2 class="gal-h">Drawings <span>pencil, ink and the odd marker</span></h2>
+    <div class="gallery drawings">
+      <figure class="art" tabindex="0" style="--r:0.719" data-title="Cracked" data-meta="pencil" data-tags="drawing">
+        <div class="pic"><img src="images/art/eye.jpg" alt="Cracked" width="920" height="1280" loading="lazy"></div>
+        <figcaption><div class="t">Cracked</div><div class="m">pencil</div></figcaption>
       </figure>
-      <figure class="art" tabindex="0" data-placeholder data-title="Untitled V" data-meta="medium · year">
-        <div class="pic"><div style="background:linear-gradient(180deg,#26221f,#5f4b63 60%,#d9aaa2)"></div></div>
-        <figcaption><div class="t">Untitled V</div><div class="m">medium · year</div></figcaption>
+      <figure class="art" tabindex="0" style="--r:0.762" data-title="Netaji Subhas Chandra Bose" data-meta="pencil" data-tags="drawing">
+        <div class="pic"><img src="images/art/netaji.jpg" alt="Netaji Subhas Chandra Bose" width="976" height="1280" loading="lazy"></div>
+        <figcaption><div class="t">Netaji Subhas Chandra Bose</div><div class="m">pencil</div></figcaption>
       </figure>
-      <figure class="art" tabindex="0" data-placeholder data-title="Untitled VI" data-meta="medium · year">
-        <div class="pic"><div style="background:radial-gradient(circle at 70% 70%,#eee5ca,#b48434 50%,#4a3a1c)"></div></div>
-        <figcaption><div class="t">Untitled VI</div><div class="m">medium · year</div></figcaption>
+      <figure class="art" tabindex="0" style="--r:0.806" data-title="Koi" data-meta="ink" data-tags="drawing">
+        <div class="pic"><img src="images/art/koi.jpg" alt="Koi" width="1032" height="1280" loading="lazy"></div>
+        <figcaption><div class="t">Koi</div><div class="m">ink</div></figcaption>
+      </figure>
+      <figure class="art" tabindex="0" style="--r:0.639" data-title="Kraken" data-meta="ink" data-tags="drawing">
+        <div class="pic"><img src="images/art/kraken.jpg" alt="Kraken" width="815" height="1276" loading="lazy"></div>
+        <figcaption><div class="t">Kraken</div><div class="m">ink</div></figcaption>
+      </figure>
+      <figure class="art" tabindex="0" style="--r:0.708" data-title="Cat" data-meta="pencil" data-tags="drawing">
+        <div class="pic"><img src="images/art/cat.jpg" alt="Cat" width="906" height="1280" loading="lazy"></div>
+        <figcaption><div class="t">Cat</div><div class="m">pencil</div></figcaption>
+      </figure>
+      <figure class="art" tabindex="0" style="--r:0.836" data-title="Sai Baba of Shirdi" data-meta="pencil" data-tags="drawing">
+        <div class="pic"><img src="images/art/sai-baba.jpg" alt="Sai Baba of Shirdi" width="1070" height="1280" loading="lazy"></div>
+        <figcaption><div class="t">Sai Baba of Shirdi</div><div class="m">pencil</div></figcaption>
+      </figure>
+      <figure class="art" tabindex="0" style="--r:0.739" data-title="Among the bamboo" data-meta="pencil" data-tags="drawing">
+        <div class="pic"><img src="images/art/bamboo.jpg" alt="Among the bamboo" width="946" height="1280" loading="lazy"></div>
+        <figcaption><div class="t">Among the bamboo</div><div class="m">pencil</div></figcaption>
+      </figure>
+      <figure class="art" tabindex="0" style="--r:0.758" data-title="Edward Elric, Fullmetal Alchemist" data-meta="markers · fan art" data-tags="drawing anime">
+        <div class="pic"><img src="images/art/edward.jpg" alt="Edward Elric, Fullmetal Alchemist" width="970" height="1280" loading="lazy"></div>
+        <figcaption><div class="t">Edward Elric, Fullmetal Alchemist</div><div class="m">markers · fan art</div></figcaption>
       </figure>
     </div>
   </section>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork">
+    <button class="lb-nav prev" type="button" aria-label="Previous">&larr;</button>
     <figure><div class="big" id="lbPic"></div><figcaption id="lbCap"></figcaption></figure>
+    <button class="lb-nav next" type="button" aria-label="Next">&rarr;</button>
   </div>
   </main>
 
@@ -93,14 +119,56 @@
 <script src="site.js"></script>
 <script>
 (() => {
-  const lb = document.getElementById("lightbox"), pic = document.getElementById("lbPic"), cap = document.getElementById("lbCap");
-  const open = f => { pic.innerHTML = f.querySelector(".pic").innerHTML; cap.textContent = f.dataset.title + " · " + f.dataset.meta; lb.classList.add("show"); };
-  document.querySelectorAll(".art").forEach(f => {
-    f.addEventListener("click", () => open(f));
-    f.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(f); } });
+  const arts = Array.from(document.querySelectorAll(".art"));
+
+  // Missing image? Keep its frame as a soft placeholder instead of a broken icon.
+  arts.forEach(f => {
+    const img = f.querySelector("img"); if (!img) return;
+    const miss = () => f.classList.add("missing");
+    if (img.complete && !img.naturalWidth) miss(); else img.addEventListener("error", miss);
   });
-  lb.addEventListener("click", () => lb.classList.remove("show"));
-  document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("show"); });
+
+  // Justified rows: every piece keeps its own shape, each row shares one height.
+  const lay = g => {
+    const cs = getComputedStyle(g), W = g.clientWidth, gap = parseFloat(cs.columnGap) || 0;
+    const t = parseFloat(cs.getPropertyValue("--h")) * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const its = Array.from(g.querySelectorAll(".art")), R = its.map(f => parseFloat(f.style.getPropertyValue("--r")) || 1);
+    const H = (a, b) => (W - gap * (b - a - 1)) / R.slice(a, b).reduce((s, r) => s + r, 0);
+    let a = 0;
+    while (a < its.length) {
+      let b = a + 1;
+      while (b < its.length && H(a, b + 1) >= t) b++;
+      if (b < its.length && Math.abs(Math.log(H(a, b + 1) / t)) < Math.abs(Math.log(H(a, b) / t))) b++;
+      let h = H(a, b); if (b === its.length && h > t * 1.35) h = t;
+      for (let i = a; i < b; i++) its[i].style.width = (Math.floor(R[i] * h * 10) / 10 - .1) + "px";
+      a = b;
+    }
+    g.classList.add("laid");
+  };
+  document.querySelectorAll(".gallery").forEach(g => { lay(g); new ResizeObserver(() => lay(g)).observe(g); });
+
+  // Lightbox with previous / next.
+  const lb = document.getElementById("lightbox"), pic = document.getElementById("lbPic"), cap = document.getElementById("lbCap");
+  let cur = -1;
+  const open = i => {
+    cur = (i + arts.length) % arts.length; const f = arts[cur], img = f.querySelector("img");
+    pic.innerHTML = ""; if (img) { const c = img.cloneNode(); c.removeAttribute("loading"); pic.appendChild(c); }
+    cap.textContent = f.dataset.title + " · " + f.dataset.meta; lb.classList.add("show");
+  };
+  const close = () => { lb.classList.remove("show"); cur = -1; };
+  arts.forEach((f, i) => {
+    f.addEventListener("click", () => open(i));
+    f.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } });
+  });
+  lb.querySelector(".prev").addEventListener("click", e => { e.stopPropagation(); open(cur - 1); });
+  lb.querySelector(".next").addEventListener("click", e => { e.stopPropagation(); open(cur + 1); });
+  lb.addEventListener("click", close);
+  document.addEventListener("keydown", e => {
+    if (cur < 0) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") open(cur - 1);
+    else if (e.key === "ArrowRight") open(cur + 1);
+  });
 })();
 </script>
 </body>

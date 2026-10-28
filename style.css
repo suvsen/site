@@ -275,18 +275,28 @@ ul.plain .n.in { display: inline; }
 .page-head p { color: var(--ink-2); font-size: 1.12rem; }
 .note-box { font-family: var(--mono); font-size: .76rem; color: var(--grey); border: 1px dashed var(--hair); border-radius: 8px; padding: .7rem .9rem; margin: 1rem 0 0; }
 
-.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+.gal-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; margin: 2.6rem 0 1.1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--hair); font-family: var(--mono); font-size: .74rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--plum); }
+.gal-h:first-child { margin-top: .6rem; }
+.gal-h span { font-weight: 400; letter-spacing: .04em; text-transform: none; color: var(--grey); }
+/* Justified rows: JS sets each width; without JS, flex-grow in proportion to shape does nearly the same. */
+.gallery { --h: 20rem; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.6rem 1.4rem; }
+.gallery.paintings { --h: 16rem; }
+.gallery .art { flex: var(--r) 1 calc(var(--r) * var(--h)); min-width: 0; margin: 0; }
+.gallery.laid .art { flex: none; }
 .art { cursor: zoom-in; }
-.art .pic { aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; border: 1px solid var(--hair); }
-.art .pic img, .art .pic div { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
-.art:hover .pic img, .art:hover .pic div { transform: scale(1.03); }
-.art .t { font-size: 1.06rem; font-weight: 500; margin-top: .55rem; }
-.art .m { font-family: var(--mono); font-size: .7rem; color: var(--grey); }
-.lightbox { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; background: rgba(15,12,18,.82); padding: 4vw; cursor: zoom-out; }
+.art .pic { aspect-ratio: var(--r, 4 / 5); border-radius: 4px; overflow: hidden; background: var(--card); box-shadow: 0 1px 2px rgba(38,34,31,.08), 0 8px 24px -14px rgba(38,34,31,.35); }
+.art .pic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.art:hover .pic img, .art:focus-visible .pic img { transform: scale(1.025); }
+.art.missing .pic { background: repeating-linear-gradient(135deg, var(--card) 0 10px, color-mix(in srgb, var(--hair) 45%, var(--card)) 10px 11px); }
+.art.missing .pic img { visibility: hidden; }
+.art .t { font-size: 1.02rem; font-weight: 500; margin-top: .6rem; line-height: 1.3; }
+.art .m { font-family: var(--mono); font-size: .68rem; color: var(--grey); margin-top: .15rem; }
+.lightbox { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; grid-template-columns: auto 1fr auto; gap: 1rem; background: rgba(15,12,18,.88); padding: 3vw; cursor: zoom-out; }
 .lightbox.show { display: grid; }
-.lightbox figure { max-width: min(900px, 92vw); color: #eee; text-align: center; }
-.lightbox .big { width: min(900px, 92vw); max-height: 78vh; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; margin: 0 auto; }
-.lightbox .big img, .lightbox .big div { width: 100%; height: 100%; object-fit: contain; }
+.lightbox figure { margin: 0; color: #eee; text-align: center; justify-self: center; }
+.lightbox .big img { display: block; max-width: min(1100px, 80vw); max-height: 82vh; width: auto; height: auto; margin: 0 auto; border-radius: 4px; }
+.lb-nav { background: none; border: 1px solid rgba(255,255,255,.3); color: #eee; width: 42px; height: 42px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; transition: background-color .2s; }
+.lb-nav:hover { background: rgba(255,255,255,.12); }
 .lightbox figcaption { font-family: var(--mono); font-size: .8rem; margin-top: .8rem; }
 
 .musings { list-style: none; border-top: 1px solid var(--hair); }
@@ -327,7 +337,6 @@ footer cite { display: block; font-family: var(--mono); font-style: normal; font
   .sidenote { display: none; float: none; width: 100%; margin: .5rem 0 .8rem; padding: .6rem .8rem; border-left: 2px solid var(--rub); background: var(--card); }
   .sidenote::before { display: none; }
   .sn-check:checked + .sidenote { display: block; }
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
   .hero { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
@@ -344,7 +353,11 @@ footer cite { display: block; font-family: var(--mono); font-style: normal; font
   .grid { grid-template-columns: 1fr; }
   .thumb { aspect-ratio: 16 / 9; }
   .media { aspect-ratio: 16 / 8; }
-  .gallery { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .gallery { --h: 13rem; gap: 1.2rem .9rem; }
+  .gallery.paintings { --h: 14rem; }
+  .lightbox { grid-template-columns: 1fr; padding: 4vw; }
+  .lb-nav { display: none; }
+  .lightbox .big img { max-width: 92vw; }
   dl.now > div, dl.threads > div, ul.plain li, ul.news li { grid-template-columns: 1fr; gap: .15rem; }
   footer { flex-direction: column; align-items: flex-start; }
   .fine { text-align: left; }
