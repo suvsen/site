@@ -126,8 +126,8 @@ body::before {
 .hello #typed { color: var(--ink); font-weight: 500; }
 .caret { display: inline-block; width: .55em; height: 1.1em; background: var(--rub); vertical-align: -.2em; margin-left: 2px; animation: blink 1.05s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
-.hero h1 { font-family: "Syne", system-ui, sans-serif; font-weight: 700; font-size: clamp(2.3rem, 4.6vw, 3.5rem); line-height: 1.02; letter-spacing: -.04em; }
-.hero h1 em { display: block; margin-top: .4em; font-family: "DM Mono", ui-monospace, monospace; font-style: normal; font-weight: 400; font-size: .58em; letter-spacing: .02em; color: var(--plum); }
+.hero h1 { font-family: "Fraunces", var(--serif); font-weight: 300; font-size: clamp(2.5rem, 5vw, 3.9rem); line-height: 1.02; letter-spacing: -.03em; font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0; }
+.hero h1 em { display: block; font-style: italic; font-weight: 400; letter-spacing: -.02em; color: var(--plum); font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1; }
 .topic {
   display: inline-flex; align-items: baseline; gap: .6rem; margin-top: 1.4rem;
   font-family: var(--mono); font-size: .74rem; color: var(--ink-2);
