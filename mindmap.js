@@ -53,7 +53,11 @@
     { id: "quo", label: "Quotes", g: "life", href: "quotes.html", note: "Lines worth keeping.", kw: "quote quotes", hub: true },
     { id: "kor", label: "Korean", g: "life", href: "#now", note: "Learning one Hangul block at a time.", kw: "korean hangul korea" },
     { id: "gym", label: "Gym", g: "life", href: "#now", note: "Where the optimizer is me.", kw: "gym fitness workout training" },
-    { id: "uls", label: "Life in Ulsan", g: "life", href: "#journey", note: "New city, new campus, new chapter.", kw: "ulsan campus" }
+    { id: "uls", label: "Life in Ulsan", g: "life", href: "#journey", note: "New city, new campus, new chapter.", kw: "ulsan campus" },
+    { id: "write", label: "Writing", g: "life", href: "musings.html", note: "Essays and half-finished thoughts, collected in Musings.", kw: "writing essay essays musing musings" },
+    { id: "anime", label: "Anime", g: "life", href: "#now", note: "Stories told in drawn light and colour.", kw: "anime manga animation" },
+    { id: "film", label: "Movies", g: "life", href: "#now", note: "Light, framed and moving.", kw: "movie movies film films cinema" },
+    { id: "cook", label: "Cooking", g: "life", href: "#now", note: "Chemistry you can eat.", kw: "cooking cook recipe recipes food baking" }
   ];
   const LINKS = [
     ["core","meta"],["core","flat"],["core","ge"],["core","pr"],["core","inv"],
@@ -62,9 +66,10 @@
     ["pcm","vo2"],["pcm","sbse"],["pvk","sol"],["pvk","led"],["pvk","pl"],["pl","sol"],
     ["led","light"],["sol","light"],["glu","hsi"],["glu","ge"],["pvk","pcm"],["ufs","hsi"],["ufs","pcm"],
     ["light","art"],["art","hsi"],["art","phil"],["phil","quo"],
-    ["kor","uls"],["gym","uls"],["uls","core"],["gym","phil"]
+    ["kor","uls"],["gym","uls"],["uls","core"],["gym","phil"],
+    ["write","phil"],["write","quo"],["anime","art"],["anime","film"],["film","light"],["cook","uls"],["cook","gym"]
   ];
-  const KIND_HOME = { paper: "light", musing: "phil", art: "art", quote: "quo" };
+  const KIND_HOME = { paper: "light", musing: "write", art: "art", quote: "quo" };
   const KIND_NAME = { paper: "paper", musing: "musing", art: "artwork", quote: "quote" };
 
   /* ---------- helpers ---------- */
@@ -273,7 +278,7 @@
       n.vx += (W / 2 - n.x) * .0010 * k; n.vy += (H / 2 - n.y) * (narrow ? .0009 : .0024) * k;
       if (n.fixed) { n.vx = n.vy = 0; return; }
       n.vx *= .82; n.vy *= .82; n.x += n.vx; n.y += n.vy;
-      const m = 28; n.x = Math.max(m, Math.min(W - m, n.x)); n.y = Math.max(m, Math.min(H - m, n.y));
+      const m = 28; n.x = Math.max(m, Math.min(W - m, n.x)); n.y = Math.max(narrow ? m : 52, Math.min(H - m, n.y));  // keep clear of the status line
     });
     heat = Math.max(.08, heat * .995);
   };
