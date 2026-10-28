@@ -40,20 +40,20 @@
     <figure class="portrait">
       <span class="backdrop" aria-hidden="true"></span>
       <!-- Each photo carries the phrase(s) typed while it is on screen (data-say).
-           Separate several phrases with |. Swap the placeholder images in images/
-           for your own and edit data-say to match. -->
+           Separate several phrases with |. Photos live in images/; each is cropped to
+           the frame's shape (width ÷ height = 0.81). -->
       <div class="frame" id="frame">
-        <img class="on" src="Profile-Pic.png" alt="Portrait of Suvankar Sen" data-say="Suvankar Sen|a PhD student at UNIST">
-        <img src="images/slide-1.jpg" alt="" data-say="an electrical engineer">
-        <img src="images/slide-2.jpg" alt="" data-say="a nanotechnologist">
-        <img src="images/slide-3.jpg" alt="" data-say="building meta-optical photodetectors">
-        <img src="images/slide-4.jpg" alt="" data-say="an artist on the side">
+        <img class="on" src="images/slide-1.jpg" alt="Suvankar on the bay in Melbourne" data-say="Hi, it's me Suvankar!">
+        <img src="Profile-Pic.png" alt="Suvankar at night in the city" data-say="PhD student at UNIST">
+        <img src="images/slide-2.jpg" alt="Suvankar at Docklands, Melbourne, at golden hour" data-say="A nanotechnologist">
+        <img src="images/slide-3.jpg" alt="Suvankar by the Yarra River at night" data-say="By the Yarra">
+        <img src="images/slide-4.jpg" alt="Suvankar in white overalls, being a silly artist" data-say="An artist on the side">
       </div>
       <figcaption><span class="count" id="count">01 / 05</span><span class="dots" id="dots" role="tablist" aria-label="Choose photo"></span></figcaption>
     </figure>
 
     <div class="copy">
-      <p class="hello"><span class="prompt">&gt;</span> Hello, I am <span id="typed">Suvankar Sen</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="hello"><span class="prompt">&gt;</span> <span id="typed">Hi, it's me Suvankar!</span><span class="caret" aria-hidden="true"></span></p>
       <h1>Flat optics, <em>designed in reverse.</em></h1>
       <p class="topic"><b>Research topic</b> Meta-optical photodetector</p>
       <p class="lead">I'm Suvankar Sen, a PhD student in Electrical Engineering at <a href="https://www.unist.ac.kr" target="_blank" rel="noopener">UNIST</a>. I'm working on meta-optical photodetectors: detectors with a metasurface on top that lets them see what an ordinary camera can't, from the full spectrum and polarization to light beyond the visible.</p>
