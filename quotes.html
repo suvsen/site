@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quotes · Suvankar Sen</title>
+<meta name="author" content="Suvankar Sen">
+<meta name="description" content="Quotes collected by Suvankar Sen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='15' fill='%235f4b63'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='%23fbf9f4'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bgwrap" aria-hidden="true"><span class="bg glow"></span></div>
+<div class="page">
+
+  <header class="running">
+    <a class="brand" href="index.html">Suvankar Sen<span>PhD student</span></a>
+    <nav aria-label="Site">
+      <a href="index.html#now">Now</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#journey">Journey</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="artworks.html">Artworks</a>
+      <a href="musings.html">Musings</a>
+      <a href="quotes.html" aria-current="page">Quotes</a>
+      <button id="theme" type="button" aria-label="Toggle dark mode">[dark]</button>
+    </nav>
+  </header>
+
+  <main>
+  <div class="page-head">
+    <p class="kicker">&gt; lines worth keeping</p>
+    <h1>Quotes</h1>
+    <p>Words I return to. Shuffle for a random one.</p>
+  </div>
+
+  <section style="padding-top:.5rem">
+    <div class="qfeature" aria-live="polite">
+      <blockquote id="qText"></blockquote>
+      <cite id="qWho"></cite>
+      <div class="row"><span class="asof" id="qNum"></span><button type="button" id="qShuffle">shuffle ↻</button></div>
+    </div>
+    <h2>All quotes</h2>
+    <div class="quotes" id="qList"></div>
+  </section>
+  </main>
+
+  <footer>
+    <blockquote>“Faith is the bird that feels the light and sings when the dawn is still dark.”<cite>Rabindranath Tagore, 1928</cite></blockquote>
+    <div class="fine">
+      <div class="social">
+        <a href="mailto:thesuvankarsen@gmail.com">email</a>
+        <a href="https://www.linkedin.com/in/SuvankarSen" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/suvsen" target="_blank" rel="noopener">github</a>
+      </div>
+      <a href="index.html">← back to home</a><br>
+      © <span id="yr">2026</span> Suvankar Sen
+    </div>
+  </footer>
+</div>
+
+<script src="site.js"></script>
+<script>
+(() => {
+  /* Edit this list to make it yours: [quote, who]. */
+  const Q = [
+    ["If I have seen further it is by standing on the shoulders of Giants.", "Isaac Newton, letter to Robert Hooke, 1675"],
+    ["Nothing is too wonderful to be true, if it be consistent with the laws of nature.", "Michael Faraday, laboratory diary, 1849"],
+    ["Faith is the bird that feels the light and sings when the dawn is still dark.", "Rabindranath Tagore, Fireflies, 1928"],
+    ["No man ever steps in the same river twice.", "After Heraclitus"]
+  ];
+  const list = document.getElementById("qList");
+  Q.forEach(([q, w]) => {
+    const f = document.createElement("figure");
+    f.innerHTML = "<blockquote></blockquote><figcaption></figcaption>";
+    f.querySelector("blockquote").textContent = "“" + q + "”";
+    f.querySelector("figcaption").textContent = w;
+    list.appendChild(f);
+  });
+  const t = document.getElementById("qText"), w = document.getElementById("qWho"), num = document.getElementById("qNum");
+  let i = -1;
+  const show = () => {
+    let j; do { j = Math.floor(Math.random() * Q.length); } while (Q.length > 1 && j === i);
+    i = j; t.style.opacity = w.style.opacity = 0;
+    setTimeout(() => { t.textContent = "“" + Q[i][0] + "”"; w.textContent = Q[i][1]; num.textContent = (i + 1) + " of " + Q.length; t.style.opacity = w.style.opacity = 1; }, 200);
+  };
+  document.getElementById("qShuffle").addEventListener("click", show);
+  show();
+})();
+</script>
+</body>
+</html>

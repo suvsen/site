@@ -5,381 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Suvankar Sen</title>
 <meta name="author" content="Suvankar Sen">
-<meta name="description" content="Suvankar Sen, PhD student in Electrical Engineering at UNIST, designing metasurfaces and meta-optical sensors with inverse design.">
+<meta name="description" content="Suvankar Sen, PhD student in Electrical Engineering at UNIST. Research topic: meta-optical photodetectors, designed with metasurfaces and inverse design.">
 <meta property="og:title" content="Suvankar Sen">
-<meta property="og:description" content="PhD student at UNIST working on metasurfaces, inverse design, and hyperspectral and polarization imaging.">
+<meta property="og:description" content="PhD student at UNIST. Research topic: meta-optical photodetectors.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='15' fill='%2365505d'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='%23fbf6ee'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='13' ry='15' fill='%235f4b63'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='%23fbf9f4'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-  /* ============ Tokens ============ */
-  :root {
-    --paper: #f8f4ec;
-    --card: #fbf8f2;
-    --ink: #2a2521;
-    --ink-2: #4a433d;
-    --grey: #857c72;
-    --hair: #ddd5c8;
-    --rule: #2a2521;
-    --plum: #65505d;
-    --rub: #a3321b;
-    --rose: #d9aaa2;
-    --sage: #a9b5a0;
-    --t-rose: #eedbd5;  --b-rose: #d4b6ad;
-    --t-sage: #dce5d7;  --b-sage: #bbcab5;
-    --t-plum: #e7dfe5;  --b-plum: #cbbcc8;
-    --t-sand: #eee5ca;  --b-sand: #d1c196;
-    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
-    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-    --shadow: rgba(217,170,162,.28);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #191613; --card: #201c18; --ink: #ede6da; --ink-2: #c9c0b4; --grey: #8f867b;
-      --hair: #3a332c; --rule: #ede6da; --plum: #cfb0c4; --rub: #ef8a6a;
-      --t-rose: #33261f; --b-rose: #55403a; --t-sage: #232b21; --b-sage: #3c4a39;
-      --t-plum: #2c2329; --b-plum: #4c3d48; --t-sand: #2e291b; --b-sand: #50472d;
-      --shadow: rgba(160,100,95,.22);
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #191613; --card: #201c18; --ink: #ede6da; --ink-2: #c9c0b4; --grey: #8f867b;
-    --hair: #3a332c; --rule: #ede6da; --plum: #cfb0c4; --rub: #ef8a6a;
-    --t-rose: #33261f; --b-rose: #55403a; --t-sage: #232b21; --b-sage: #3c4a39;
-    --t-plum: #2c2329; --b-plum: #4c3d48; --t-sand: #2e291b; --b-sand: #50472d;
-    --shadow: rgba(160,100,95,.22);
-  }
-
-  /* ============ Base ============ */
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
-  body {
-    font-family: var(--serif); font-size: 1.15rem; line-height: 1.5;
-    color: var(--ink); background: var(--paper);
-    -webkit-font-smoothing: antialiased; font-feature-settings: "kern", "liga", "onum";
-    counter-reset: sidenote; overflow-x: hidden;
-    transition: background-color .25s, color .25s;
-  }
-  ::selection { background: var(--rub); color: var(--paper); }
-  a { color: inherit; text-decoration: none; }
-  p a, li a, dd a, .sidenote a, .pub .t a {
-    border-bottom: 1px solid var(--hair); transition: color .2s, border-color .2s;
-  }
-  p a:hover, li a:hover, dd a:hover, .sidenote a:hover, .pub .t a:hover { color: var(--rub); border-bottom-color: var(--rub); }
-  .mono { font-family: var(--mono); }
-  .sc { font-variant: all-small-caps; letter-spacing: .06em; }
-  .page { position: relative; overflow-x: clip; max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4.5vw, 56px) 3rem; }
-
-  /* decorative petals (Maksym) */
-  .petal, .orbit { position: absolute; pointer-events: none; z-index: 0; }
-  .petal { filter: blur(1px); border-radius: 64% 36% 62% 38% / 72% 55% 45% 28%; }
-  .petal.one { background: var(--rose); opacity: .28; width: 300px; height: 250px; top: -120px; left: 38%; transform: rotate(22deg); }
-  .petal.two { background: var(--sage); opacity: .2; width: 320px; height: 390px; top: 520px; right: -170px; transform: rotate(-28deg); }
-  .orbit { border: 1px solid rgba(119,94,107,.22); border-radius: 50%; width: 680px; height: 680px; top: 150px; right: -360px; }
-  [data-theme="dark"] .petal { opacity: .1 !important; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .petal { opacity: .1; } }
-  .page > *:not(.petal):not(.orbit) { position: relative; z-index: 1; }
-
-  /* ============ Running header (Janu) ============ */
-  .running {
-    display: flex; justify-content: space-between; align-items: baseline; gap: .8rem 2rem; flex-wrap: wrap;
-    padding: 1.6rem 0 .6rem; border-bottom: 3px double var(--rule); font-size: 1rem;
-  }
-  .brand { font-weight: 600; letter-spacing: -.02em; font-size: 1.3rem; }
-  .brand span { font-family: var(--mono); font-size: .62rem; font-weight: 500; letter-spacing: .14em; color: var(--plum); margin-left: .4rem; text-transform: uppercase; vertical-align: .25em; }
-  .running nav { display: flex; gap: 1.3rem; flex-wrap: wrap; align-items: baseline; }
-  .running nav a { color: var(--ink-2); position: relative; }
-  .running nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: 0 50%; transition: transform .18s; }
-  .running nav a:hover { color: var(--rub); }
-  .running nav a:hover::after { transform: scaleX(1); }
-  #theme { background: none; border: 0; cursor: pointer; color: var(--ink-2); font: inherit; font-family: var(--mono); font-size: .78rem; padding: 0; }
-  #theme:hover { color: var(--rub); }
-
-  /* ============ Hero (Maksym layout) ============ */
-  .hero {
-    display: grid; grid-template-columns: minmax(280px, .9fr) minmax(360px, 1.1fr);
-    gap: clamp(44px, 7vw, 104px); align-items: center; margin: clamp(48px, 7vw, 84px) 0 clamp(56px, 7vw, 88px);
-  }
-  .portrait { width: min(100%, 430px); position: relative; justify-self: center; }
-  .portrait .backdrop {
-    position: absolute; top: -30px; right: -34px; width: 72%; height: 82%;
-    border: 1px solid rgba(101,80,93,.36); border-radius: 49% 51% 43% 57% / 44% 45% 55% 56%; transform: rotate(8deg);
-    animation: drift 14s ease-in-out infinite alternate;
-  }
-  @keyframes drift { to { transform: rotate(14deg) translate(-6px, 6px); border-radius: 55% 45% 50% 50% / 48% 40% 60% 52%; } }
-  .frame {
-    position: relative; aspect-ratio: .81 / 1; overflow: hidden; background: var(--t-plum);
-    border-radius: 48% 52% 44% 56% / 37% 42% 58% 63%;
-    box-shadow: -14px 14px 0 var(--shadow), 0 26px 60px rgba(76,59,54,.14);
-  }
-  .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; opacity: 0; transition: opacity 1.4s ease; }
-  .frame img.on { opacity: 1; }
-  .portrait figcaption {
-    display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 16px 20px 0;
-    font-style: italic; font-size: .82rem; color: var(--ink-2); min-height: 2.6em;
-  }
-  .portrait figcaption span { font-family: var(--mono); font-style: normal; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--plum); white-space: nowrap; }
-  .dots { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
-  .dots button { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--plum); background: transparent; cursor: pointer; padding: 0; opacity: .6; }
-  .dots button.on { background: var(--plum); opacity: 1; }
-
-  /* typewriter (Kylie) */
-  .hello { font-family: var(--mono); font-size: .9rem; color: var(--ink-2); margin-bottom: 1.4rem; min-height: 1.6em; }
-  .hello .prompt { color: var(--plum); }
-  .hello #typed { color: var(--ink); font-weight: 500; }
-  .caret { display: inline-block; width: .55em; height: 1.1em; background: var(--rub); vertical-align: -.2em; margin-left: 2px; animation: blink 1.05s steps(1) infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
-
-  .hero h1 {
-    font-weight: 400; font-size: clamp(2.5rem, 5vw, 3.9rem); line-height: 1; letter-spacing: -.035em;
-    font-variation-settings: "opsz" 72;
-  }
-  .hero h1 em { display: block; color: var(--plum); }
-  .lead { font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.4; margin-top: 1.7rem; text-wrap: pretty; }
-  .bio { font-size: 1.02rem; color: var(--ink-2); margin-top: 1.1rem; line-height: 1.6; max-width: 34em; text-wrap: pretty; }
-  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 1.8rem; font-family: var(--mono); font-size: .8rem; }
-  .btn { background: var(--plum); color: var(--paper); border: 1px solid var(--plum); padding: 10px 14px; display: inline-flex; gap: 10px; transition: transform .18s, background-color .18s; }
-  .btn:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-2px); }
-  .actions .ul { border-bottom: 1px solid var(--ink-2); padding-bottom: 3px; }
-  .actions .ul:hover { color: var(--rub); border-color: var(--rub); }
-  .linkrow { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; font-family: var(--mono); font-size: .76rem; color: var(--grey); margin-top: 1.3rem; }
-  .linkrow a { color: var(--ink-2); border-bottom: 1px solid var(--hair); }
-  .linkrow a:hover { color: var(--rub); border-bottom-color: var(--rub); }
-
-  /* ============ Path cards (Maksym) ============ */
-  .paths { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .paths a {
-    position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;
-    min-height: 150px; padding: 22px; border-radius: 12px; border: 1px solid; box-shadow: 0 6px 0 rgba(52,46,44,.06);
-    transition: transform .22s, box-shadow .22s;
-  }
-  .paths a:hover { transform: translateY(-3px); box-shadow: 0 9px 0 rgba(52,46,44,.08); }
-  .paths a:nth-child(1) { background: var(--t-rose); border-color: var(--b-rose); }
-  .paths a:nth-child(2) { background: var(--t-sage); border-color: var(--b-sage); }
-  .paths a:nth-child(3) { background: var(--t-plum); border-color: var(--b-plum); }
-  .paths a:nth-child(4) { background: var(--t-sand); border-color: var(--b-sand); }
-  .paths strong { font-weight: 400; font-size: 1.6rem; letter-spacing: -.02em; line-height: 1.1; }
-  .paths small { font-family: var(--mono); font-size: .72rem; color: var(--ink-2); margin-top: 6px; line-height: 1.45; }
-  .paths .p-petal { position: absolute; top: -34px; right: -24px; width: 92px; height: 72px; border: 1px solid rgba(101,80,93,.4); border-radius: 70% 30% 65% 35%; transform: rotate(28deg); transition: transform .24s; }
-  .paths a:hover .p-petal { transform: translate(-9px, 8px) rotate(14deg); }
-
-  /* ============ Sections (Janu) ============ */
-  section { padding-top: clamp(2.6rem, 5vw, 3.8rem); }
-  h2 {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-    font-weight: 500; font-size: 1.5rem; letter-spacing: -.01em; line-height: 1.2;
-    border-top: 1px solid var(--rule); padding-top: .55rem; margin-bottom: 1.1rem;
-  }
-  h2 .more { font-family: var(--mono); font-size: .74rem; font-weight: 400; color: var(--grey); }
-  h2 .more a:hover, h2 .more button:hover { color: var(--rub); }
-  .col { width: 62%; container-type: inline-size; }
-  .wide { width: 100%; }
-  p { margin-bottom: 1rem; text-wrap: pretty; }
-  .asof { font-family: var(--mono); font-size: .74rem; color: var(--grey); margin-top: .6rem; }
-
-  /* sidenotes (Janu / Tufte) */
-  .sn-toggle { counter-increment: sidenote; cursor: pointer; }
-  .sn-toggle::after { content: counter(sidenote); font-family: var(--mono); font-size: .68em; color: var(--rub); vertical-align: super; line-height: 0; margin-left: .1em; }
-  .sn-check { display: none; }
-  .sidenote {
-    float: right; clear: right; width: 52cqi; margin-right: -61cqi; margin-top: .2rem; margin-bottom: .8rem;
-    font-size: .86rem; line-height: 1.45; color: var(--ink-2); position: relative; text-wrap: pretty;
-  }
-  .sidenote::before { content: counter(sidenote); position: absolute; left: -1.4rem; top: .1rem; font-family: var(--mono); font-size: .7rem; color: var(--rub); }
-
-  /* now list */
-  dl.now > div, dl.threads > div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: .6rem 0; border-top: 1px solid var(--hair); }
-  dl.now > div:last-of-type, dl.threads > div:last-of-type { border-bottom: 1px solid var(--hair); }
-  dl.now dt, dl.threads dt { font-variant: all-small-caps; letter-spacing: .06em; color: var(--ink-2); padding-top: .05rem; }
-  dl.now dd, dl.threads dd { font-size: 1.04rem; color: var(--ink-2); line-height: 1.5; }
-  dl.now dd b { color: var(--ink); font-weight: 500; }
-  dl.threads > div { grid-template-columns: 11rem 1fr; }
-  dl.now dd { position: relative; }
-  dl.now dd .sidenote { position: absolute; float: none; top: 0; left: calc(100% + 9cqi); margin: 0; }
-
-  /* news (Wenlong) */
-  ul.news { list-style: none; }
-  ul.news li { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding: .32rem 0; font-size: 1.04rem; line-height: 1.45; align-items: baseline; }
-  ul.news .d { font-family: var(--mono); font-size: .74rem; color: var(--grey); }
-  ul.news li.hidden { display: none; }
-  .show-more { font-family: var(--mono); font-size: .74rem; color: var(--grey); background: none; border: 0; cursor: pointer; margin-top: .4rem; padding: 0; }
-  .show-more:hover { color: var(--rub); }
-
-  /* research cards (Janu grid) */
-  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; margin: 1.4rem 0 .4rem; }
-  .thumb { aspect-ratio: 4 / 3; border: 1px solid var(--hair); overflow: hidden; border-radius: 4px; }
-  .thumb svg { width: 100%; height: 100%; display: block; }
-  .grid .cap { margin-top: .65rem; }
-  .grid .m { display: block; font-family: var(--mono); font-size: .7rem; color: var(--grey); margin-bottom: .25rem; }
-  .grid .t { font-size: 1.12rem; font-weight: 500; line-height: 1.3; }
-  .grid .s { display: block; font-size: .94rem; line-height: 1.45; color: var(--ink-2); margin-top: .2rem; }
-
-  /* publications (Wenlong rows) */
-  .pubs { list-style: none; border-top: 1px solid var(--hair); }
-  .pub { display: grid; grid-template-columns: 220px 1fr; gap: 1.6rem; padding: 1.2rem 0; border-bottom: 1px solid var(--hair); align-items: center; }
-  .pub.hidden { display: none; }
-  .media { position: relative; aspect-ratio: 16 / 10; border-radius: 6px; overflow: hidden; border: 1px solid var(--hair); }
-  .media svg, .media video, .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .media .tag { position: absolute; left: 8px; bottom: 7px; font-family: var(--mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); background: color-mix(in srgb, var(--paper) 82%, transparent); padding: 2px 6px; border-radius: 3px; }
-  .pub .t { font-size: 1.12rem; font-weight: 500; line-height: 1.32; }
-  .pub .au { font-size: .94rem; color: var(--ink-2); margin-top: .25rem; line-height: 1.45; }
-  .pub .au u { text-decoration-color: var(--plum); text-underline-offset: 3px; color: var(--ink); }
-  .pub .v { font-size: .94rem; margin-top: .1rem; }
-  .pub .v em { color: var(--ink); }
-  .award { display: inline-block; margin-top: .3rem; color: var(--rub); font-size: .92rem; font-weight: 500; }
-  .status { display: inline-block; font-family: var(--mono); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--plum); border: 1px solid var(--b-plum); background: var(--t-plum); padding: 1px 6px; border-radius: 3px; margin-left: .3rem; vertical-align: .15em; }
-  .pub .lk { font-family: var(--mono); font-size: .74rem; color: var(--grey); margin-top: .4rem; }
-  .pub .lk a { color: var(--ink-2); border-bottom: 1px solid var(--hair); }
-  .pub .lk a:hover { color: var(--rub); border-bottom-color: var(--rub); }
-  .pub .desc { font-size: .98rem; color: var(--ink-2); margin: .45rem 0 0; line-height: 1.5; }
-  .toggle { display: inline-flex; gap: .3rem; }
-  .toggle button { background: none; border: 0; font: inherit; color: var(--grey); cursor: pointer; padding: 0; }
-  .toggle button[aria-pressed="true"] { color: var(--ink); border-bottom: 1px solid var(--ink); }
-
-  /* plain lists */
-  ul.plain { list-style: none; border-top: 1px solid var(--hair); }
-  ul.plain li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--hair); font-size: 1.04rem; line-height: 1.45; align-items: baseline; }
-  ul.plain .d { font-family: var(--mono); font-size: .74rem; color: var(--grey); }
-  ul.plain .w { display: block; color: var(--ink-2); font-size: .95rem; }
-  ul.plain .n { display: block; color: var(--grey); font-size: .9rem; margin-top: .1rem; }
-
-  /* footer (Maksym + Kylie) */
-  footer { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-top: clamp(3.5rem, 7vw, 5rem); padding-top: 1.6rem; border-top: 3px double var(--rule); }
-  footer blockquote { font-style: italic; font-size: 1.05rem; color: var(--ink-2); max-width: 30em; line-height: 1.45; }
-  footer cite { display: block; font-family: var(--mono); font-style: normal; font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--plum); margin-top: .5rem; }
-  .fine { font-family: var(--mono); font-size: .72rem; color: var(--grey); text-align: right; line-height: 1.7; }
-  .fine a { border-bottom: 1px solid var(--hair); color: var(--ink-2); }
-  .fine a:hover { color: var(--rub); }
-
-  /* reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-
-  /* ============ Responsive ============ */
-  @media (max-width: 960px) {
-    .col { width: 100%; }
-    dl.now dd .sidenote { position: static; }
-    .sidenote { display: none; float: none; width: 100%; margin: .5rem 0 .8rem; padding: .6rem .8rem; border-left: 2px solid var(--rub); background: var(--card); }
-    .sidenote::before { display: none; }
-    .sn-check:checked + .sidenote { display: block; }
-    .paths { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 800px) {
-    .hero { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
-    .portrait { width: min(80vw, 360px); }
-    .grid { grid-template-columns: 1fr 1fr; }
-    .pub { grid-template-columns: 1fr; gap: .9rem; }
-    .media { max-width: 420px; }
-  }
-  @media (max-width: 560px) {
-    body { font-size: 1.08rem; }
-    .running nav a.opt { display: none; }
-    .paths a { min-height: 120px; padding: 16px; }
-    .paths strong { font-size: 1.3rem; }
-    .paths .p-petal { display: none; }
-    .grid { grid-template-columns: 1fr; }
-    .thumb { aspect-ratio: 16 / 9; }
-    .media { aspect-ratio: 16 / 8; }
-    dl.now > div, dl.threads > div, ul.plain li, ul.news li { grid-template-columns: 1fr; gap: .15rem; }
-    footer { flex-direction: column; align-items: flex-start; }
-    .fine { text-align: left; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .reveal { opacity: 1; transform: none; }
-    html { scroll-behavior: auto; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="bgwrap" aria-hidden="true"><span class="bg glow"></span><span class="bg zone"></span></div>
 <div class="page">
-  <span class="petal one" aria-hidden="true"></span>
-  <span class="petal two" aria-hidden="true"></span>
-  <span class="orbit" aria-hidden="true"></span>
 
-  <!-- ===== Header ===== -->
   <header class="running">
-    <a class="brand" href="#">Suvankar Sen<span>PhD student</span></a>
-    <nav aria-label="Sections">
+    <a class="brand" href="index.html">Suvankar Sen<span>PhD student</span></a>
+    <nav aria-label="Site">
       <a href="#now">Now</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
-      <a href="#journey" class="opt">Journey</a>
+      <a href="#journey">Journey</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="artworks.html">Artworks</a>
+      <a href="musings.html">Musings</a>
+      <a href="quotes.html">Quotes</a>
       <button id="theme" type="button" aria-label="Toggle dark mode">[dark]</button>
     </nav>
   </header>
 
-  <!-- ===== Hero ===== -->
   <main>
+  <!-- ===== Hero ===== -->
   <section class="hero" aria-label="Introduction" style="padding-top:0">
     <figure class="portrait">
       <span class="backdrop" aria-hidden="true"></span>
+      <!-- Each photo carries the phrase(s) typed while it is on screen (data-say).
+           Separate several phrases with |. Swap the placeholder images in images/
+           for your own and edit data-say to match. -->
       <div class="frame" id="frame">
-        <!-- The first image is the headshot. The rest are placeholders in images/:
-             replace them with your own photos and edit data-caption / data-tag. -->
-        <img class="on" src="Profile-Pic.png" alt="Portrait of Suvankar Sen"
-             data-tag="Ulsan, 2026" data-caption="An engineer, mostly smiling at light">
-        <img src="images/slide-1.jpg" alt="" loading="lazy" data-tag="Placeholder" data-caption="Old arches, new light">
-        <img src="images/slide-2.jpg" alt="" loading="lazy" data-tag="Placeholder" data-caption="Curves that bend the light">
-        <img src="images/slide-3.jpg" alt="" loading="lazy" data-tag="Placeholder" data-caption="A spectrum, folded">
-        <img src="images/slide-4.jpg" alt="" loading="lazy" data-tag="Placeholder" data-caption="Off-duty: making art">
+        <img class="on" src="Profile-Pic.png" alt="Portrait of Suvankar Sen" data-say="Suvankar Sen|a PhD student at UNIST">
+        <img src="images/slide-1.jpg" alt="" data-say="an electrical engineer">
+        <img src="images/slide-2.jpg" alt="" data-say="a nanotechnologist">
+        <img src="images/slide-3.jpg" alt="" data-say="building meta-optical photodetectors">
+        <img src="images/slide-4.jpg" alt="" data-say="an artist on the side">
       </div>
-      <figcaption><span id="ftag">Ulsan, 2026</span><i id="fcap">An engineer, mostly smiling at light</i></figcaption>
-      <div class="dots" id="dots" role="tablist" aria-label="Choose photo"></div>
+      <figcaption><span class="count" id="count">01 / 05</span><span class="dots" id="dots" role="tablist" aria-label="Choose photo"></span></figcaption>
     </figure>
 
     <div class="copy">
-      <p class="hello" aria-live="off"><span class="prompt">&gt;</span> Hello, I am <span id="typed">Suvankar Sen</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="hello"><span class="prompt">&gt;</span> Hello, I am <span id="typed">Suvankar Sen</span><span class="caret" aria-hidden="true"></span></p>
       <h1>Flat optics, <em>designed in reverse.</em></h1>
-      <p class="lead">I'm Suvankar Sen, a PhD student in Electrical Engineering at <a href="https://www.unist.ac.kr" target="_blank" rel="noopener">UNIST</a>. I design metasurfaces that let a sensor see what an ordinary camera can't: the full spectrum, the polarization, and light beyond the visible.</p>
+      <p class="topic"><b>Research topic</b> Meta-optical photodetector</p>
+      <p class="lead">I'm Suvankar Sen, a PhD student in Electrical Engineering at <a href="https://www.unist.ac.kr" target="_blank" rel="noopener">UNIST</a>. I build meta-optical photodetectors: detectors with a metasurface on top that lets them see what an ordinary camera can't, from the full spectrum and polarization to light beyond the visible.</p>
       <p class="bio">I work with Prof. Minho Choi in Ulsan, South Korea. Before that I spent four years at RMIT University in Melbourne, on phase-change materials whose optical properties can be switched on demand, and earlier on perovskites for solar cells and LEDs. I trained as an electrical engineer, then as a nanotechnologist.</p>
       <div class="actions">
         <a class="btn" href="#research">What I work on <span aria-hidden="true">→</span></a>
         <a class="ul" href="mailto:thesuvankarsen@gmail.com">Email me</a>
       </div>
-      <div class="linkrow">
-        <a href="mailto:thesuvankarsen@gmail.com">email</a>
-        <a href="https://www.linkedin.com/in/SuvankarSen" target="_blank" rel="noopener">linkedin</a>
-        <a href="https://github.com/suvsen" target="_blank" rel="noopener">github</a>
-        <!-- Uncomment and fill in when ready:
-        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">scholar</a>
-        <a href="https://orcid.org/YOUR-ORCID" target="_blank" rel="noopener">orcid</a>
-        <a href="CV.pdf" target="_blank" rel="noopener">cv</a>
-        -->
-      </div>
+
+      <!-- Icon links: the label slides out on hover (always shown on touch screens) -->
+      <nav class="dock" aria-label="Sections">
+        <a href="#now" aria-label="Now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Now</span></a>
+        <a href="#research" aria-label="Research"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="8.5" stroke-dasharray="2 2.2"/></svg><span>Research</span></a>
+        <a href="#mindmap" aria-label="Mind map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="7" r="1.8"/><circle cx="6" cy="18.5" r="1.8"/><circle cx="18.5" cy="18" r="1.8"/><path d="M10.2 10.4 6.4 7.2M13.9 10.6l3.5-2.6M10.3 13.8l-3 3.3M13.8 13.9l3.3 2.8"/></svg><span>Mind map</span></a>
+        <a href="#publications" aria-label="Publications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h8.5L19 8v12.5H6z"/><path d="M14.5 3.5V8H19M9 12h7M9 15h7M9 18h4"/></svg><span>Publications</span></a>
+        <a href="#journey" aria-label="Journey"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c3-1 2-6 6-7s5-5 8-6"/><circle cx="5" cy="19" r="1.6"/><circle cx="19" cy="6" r="1.6"/><path d="M19 11.5v4M17 13.5h4"/></svg><span>Journey</span></a>
+      </nav>
     </div>
   </section>
-
-  <!-- ===== Path cards ===== -->
-  <nav class="paths reveal" aria-label="Explore">
-    <a href="#now"><span class="p-petal" aria-hidden="true"></span><strong>Now</strong><small>what's on my desk this month</small></a>
-    <a href="#research"><span class="p-petal" aria-hidden="true"></span><strong>Research</strong><small>flat optics &amp; inverse design</small></a>
-    <a href="#publications"><span class="p-petal" aria-hidden="true"></span><strong>Publications</strong><small>eight papers, 2020 onward</small></a>
-    <a href="#journey"><span class="p-petal" aria-hidden="true"></span><strong>Journey</strong><small>India → Australia → Korea</small></a>
-  </nav>
 
   <!-- ===== Now ===== -->
   <section id="now" class="reveal">
     <h2>Now</h2>
     <div class="col">
       <dl class="now">
-        <div><dt>Working on</dt><dd><b>Flatband metasurfaces.</b> Deriving their band structure from scratch, first in 1D, then in 2D<label for="sn-flat" class="sn-toggle"></label><input type="checkbox" id="sn-flat" class="sn-check"><span class="sidenote">A <em>flatband</em> is a band whose frequency barely changes with angle. A device built on one responds the same way to light arriving from many directions, which is what you want for a detector.</span>, and using that to design a germanium photodetector for 1550&nbsp;nm.</dd></div>
+        <div><dt>Working on</dt><dd><b>A meta-optical photodetector.</b> Deriving the band structure of flatband metasurfaces from scratch, first in 1D, then in 2D<label for="sn-flat" class="sn-toggle"></label><input type="checkbox" id="sn-flat" class="sn-check"><span class="sidenote">A <em>flatband</em> is a band whose frequency barely changes with angle. A device built on one responds the same way to light arriving from many directions, which is what you want for a detector.</span>, and using it to design a germanium detector for 1550&nbsp;nm.</dd></div>
         <div><dt>Building</dt><dd>A time-resolved photoresponse setup for the telecom C-band, to watch detectors respond in under a nanosecond.</dd></div>
         <div><dt>Learning</dt><dd>Korean, one Hangul block at a time.</dd></div>
-        <div><dt>Off duty</dt><dd>Drawing and painting, philosophy, and the gym.</dd></div>
+        <div><dt>Off duty</dt><dd>Drawing and painting (see <a href="artworks.html">Artworks</a>), philosophy (see <a href="musings.html">Musings</a>), and the gym.</dd></div>
       </dl>
       <p class="asof">as of October 2026</p>
     </div>
   </section>
 
-  <!-- ===== News (Wenlong) ===== -->
+  <!-- ===== News ===== -->
   <section id="news" class="reveal">
     <h2>News</h2>
     <div class="col">
       <ul class="news" id="newsList">
-        <li><span class="d">2026·09</span><span>Started my PhD in Electrical Engineering at UNIST, with Prof. Minho Choi. Moved to Ulsan.</span></li>
+        <li><span class="d">2026·09</span><span>Started my PhD in Electrical Engineering at UNIST with Prof. Minho Choi, on meta-optical photodetectors. Moved to Ulsan.</span></li>
         <li><span class="d">2024</span><span>Our <a href="#p-glucose">miniaturized near-infrared glucose sensor</a> is out in <em>Advanced Sensor Research</em>.</span></li>
         <li><span class="d">2023·12</span><span>Published a review on <a href="#p-tin">tin-based, lead-free perovskite solar cells</a> in <em>Advanced Energy &amp; Sustainability Research</em>.</span></li>
         <li><span class="d">2023·01</span><span><a href="#p-led">2D perovskite and carbon-dot LEDs</a> published in <em>Nanoscale</em>.</span></li>
@@ -394,8 +108,8 @@
   <section id="research" class="reveal">
     <h2>Research</h2>
     <div class="col">
-      <p>An ordinary camera throws away most of what light carries. It records brightness in three broad colors, and forgets the rest: the fine spectrum, the polarization, everything outside the visible. I'm interested in sensors that keep it.</p>
-      <p>The tool I use is the <em>metasurface</em>, a layer of nanostructures thinner than the wavelength of light<label for="sn-meta" class="sn-toggle"></label><input type="checkbox" id="sn-meta" class="sn-check"><span class="sidenote">Each nanostructure acts like a tiny antenna. By choosing its shape and size, you set how it delays, filters, or rotates the light passing through it, pixel by pixel.</span>, which can sort light by color and polarization before it ever reaches the detector. Designing one by intuition gets hard fast, so I design them in reverse: state what the light should do, and let an optimizer find the structure that does it<label for="sn-inv" class="sn-toggle"></label><input type="checkbox" id="sn-inv" class="sn-check"><span class="sidenote">This is <em>inverse design</em>. I simulate with rigorous coupled-wave analysis (RCWA) and pair it with gradient-based or gradient-free optimization.</span>.</p>
+      <p>My PhD topic is the <b style="font-weight:500">meta-optical photodetector</b>. An ordinary camera throws away most of what light carries: it records brightness in three broad colors and forgets the fine spectrum, the polarization, and everything outside the visible. I want detectors that keep it.</p>
+      <p>The tool is the <em>metasurface</em>, a layer of nanostructures thinner than the wavelength of light<label for="sn-meta" class="sn-toggle"></label><input type="checkbox" id="sn-meta" class="sn-check"><span class="sidenote">Each nanostructure acts like a tiny antenna. By choosing its shape and size, you set how it delays, filters, or rotates the light passing through it, pixel by pixel.</span>. Placed on a detector, it can sort light by color and polarization, or trap it so a thin absorber catches more of it. Designing one by intuition gets hard fast, so I design them in reverse: state what the light should do, and let an optimizer find the structure that does it<label for="sn-inv" class="sn-toggle"></label><input type="checkbox" id="sn-inv" class="sn-check"><span class="sidenote">This is <em>inverse design</em>. I simulate with rigorous coupled-wave analysis (RCWA) and pair it with gradient-based or gradient-free optimization.</span>.</p>
     </div>
     <div class="grid">
       <div>
@@ -414,9 +128,9 @@
       </div>
       <div>
         <div class="thumb" style="background:var(--t-plum)">
-          <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="#65505d" stroke-width="1.2">
+          <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="#5f4b63" stroke-width="1.2">
             <path d="M14 100 C 40 98, 48 30, 80 40 S 120 92, 146 20" stroke-dasharray="3 4" opacity=".6"/>
-            <circle cx="14" cy="100" r="3" fill="#65505d"/><circle cx="52" cy="54" r="3" fill="#65505d" opacity=".7"/><circle cx="96" cy="58" r="3" fill="#65505d" opacity=".7"/><circle cx="146" cy="20" r="4.5" fill="#a3321b" stroke="none"/>
+            <circle cx="14" cy="100" r="3" fill="#5f4b63"/><circle cx="52" cy="54" r="3" fill="#5f4b63" opacity=".7"/><circle cx="96" cy="58" r="3" fill="#5f4b63" opacity=".7"/><circle cx="146" cy="20" r="4.5" fill="#a3321b" stroke="none"/>
             <path d="M120 16 h24 M120 24 h16" stroke="#a3321b" opacity=".5"/>
           </g></svg>
         </div>
@@ -426,17 +140,42 @@
         <div class="thumb" style="background:var(--t-sand)">
           <svg viewBox="0 0 160 120" aria-hidden="true">
             <defs><linearGradient id="spec" x1="0" x2="1"><stop offset="0" stop-color="#6b4fa0"/><stop offset=".25" stop-color="#3c78b4"/><stop offset=".45" stop-color="#4f9a62"/><stop offset=".62" stop-color="#d6b13a"/><stop offset=".8" stop-color="#d8743a"/><stop offset="1" stop-color="#9a2f22"/></linearGradient></defs>
-            <g opacity=".85"><rect x="30" y="18" width="78" height="56" fill="url(#spec)" opacity=".35" transform="skewY(-8) translate(0,14)"/><rect x="40" y="28" width="78" height="56" fill="url(#spec)" opacity=".55" transform="skewY(-8) translate(0,14)"/><rect x="50" y="38" width="78" height="56" fill="url(#spec)" opacity=".8" transform="skewY(-8) translate(0,14)"/></g>
-            <path d="M136 30 v40 M130 36 l12 28 M142 36 l-12 28" stroke="#7c662b" stroke-width="1.2" opacity=".7"/>
+            <g opacity=".85"><rect x="30" y="10" width="78" height="40" fill="url(#spec)" opacity=".45" transform="skewY(-8) translate(0,14)"/><rect x="40" y="20" width="78" height="40" fill="url(#spec)" opacity=".75" transform="skewY(-8) translate(0,14)"/></g>
+            <rect x="34" y="86" width="92" height="10" rx="2" fill="#7c662b" opacity=".55"/>
+            <path d="M60 70 v14 M80 70 v14 M100 70 v14" stroke="#7c662b" stroke-width="1.2" stroke-dasharray="2 2"/>
+            <text x="38" y="112" font-family="IBM Plex Mono, monospace" font-size="7" fill="#7c662b">detector</text>
           </svg>
         </div>
-        <div class="cap"><span class="m">03 · application</span><div class="t">Hyperspectral &amp; polarization imaging</div><span class="s">Compact sensors that record the full spectrum and polarization of a scene instead of three color channels.</span></div>
+        <div class="cap"><span class="m">03 · device</span><div class="t">Meta-optical photodetectors</div><span class="s">Detectors that read spectrum and polarization directly, or catch telecom light in a thinner absorber, thanks to the metasurface on top.</span></div>
       </div>
     </div>
-    <p class="col" style="color:var(--ink-2); font-size:1rem; margin-top:1rem">Before metasurfaces, I worked on <b style="font-weight:500;color:var(--ink)">optical and electronic materials</b>: phase-change thin films (VO₂, Sb₂Se₃) whose optical constants switch with heat or light, lead-free perovskites for solar cells and LEDs, and plasma processing of nanomaterials. That hands-on fabrication background is what I bring to the computational side.</p>
+    <p class="col muted" style="font-size:1rem; margin-top:1rem">Before metasurfaces, I worked on <b style="font-weight:500;color:var(--ink)">optical and electronic materials</b>: phase-change thin films (VO₂, Sb₂Se₃) whose optical constants switch with heat or light, lead-free perovskites for solar cells and LEDs, and plasma processing of nanomaterials. That hands-on fabrication background is what I bring to the computational side.</p>
   </section>
 
-  <!-- ===== Publications (Wenlong rows) ===== -->
+  <!-- ===== Mind map ===== -->
+  <section id="mindmap" class="reveal">
+    <h2>Mind map <span class="more">drag · click · add a thought</span></h2>
+    <div class="mm">
+      <canvas id="mm" aria-label="Interactive map of how my research and interests connect. Drag nodes, click one for a note, or add your own word below."></canvas>
+      <div class="card-note" id="mmCard" role="status" aria-live="polite"></div>
+      <span class="mm-hint" id="mmHint">click a node</span>
+      <div class="mm-bar">
+        <form id="mmForm">
+          <input id="mmInput" type="text" maxlength="28" placeholder="Add a thought: 'rainbows', 'coffee', 'AI'…" aria-label="Add a word to the map" autocomplete="off">
+          <button type="submit">Link it</button>
+        </form>
+        <div class="mm-legend">
+          <span><i style="background:var(--rub)"></i>PhD topic</span>
+          <span><i style="background:var(--plum)"></i>now</span>
+          <span><i style="background:#6f8a66"></i>before</span>
+          <span><i style="background:#b48434"></i>off duty</span>
+          <button type="button" id="mmShake">shake</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Publications ===== -->
   <section id="publications" class="reveal">
     <h2>Publications <span class="more toggle" role="group" aria-label="Filter publications"><button type="button" data-f="sel" aria-pressed="true">show selected</button> / <button type="button" data-f="all" aria-pressed="false">show all</button></span></h2>
     <ol class="pubs" id="pubs">
@@ -449,7 +188,7 @@
           <svg viewBox="0 0 160 100" aria-hidden="true"><g fill="#a9675f">
             <circle cx="22" cy="30" r="4"/><circle cx="38" cy="30" r="4"/><circle cx="54" cy="30" r="4"/><circle cx="22" cy="46" r="4"/><circle cx="38" cy="46" r="4"/><circle cx="54" cy="46" r="4"/><circle cx="22" cy="62" r="4"/><circle cx="38" cy="62" r="4"/><circle cx="54" cy="62" r="4"/>
             <circle cx="106" cy="27" r="4" opacity=".6"/><circle cx="125" cy="38" r="4" opacity=".6"/><circle cx="114" cy="52" r="4" opacity=".6"/><circle cx="138" cy="58" r="4" opacity=".6"/><circle cx="102" cy="68" r="4" opacity=".6"/><circle cx="128" cy="74" r="4" opacity=".6"/><circle cx="141" cy="28" r="4" opacity=".6"/></g>
-            <path d="M70 46 h22 m-6 -5 l6 5 -6 5 M92 56 h-22 m6 -5 l-6 5 6 5" stroke="#65505d" stroke-width="1.3" fill="none"/></svg>
+            <path d="M70 46 h22 m-6 -5 l6 5 -6 5 M92 56 h-22 m6 -5 l-6 5 6 5" stroke="#5f4b63" stroke-width="1.3" fill="none"/></svg>
           <span class="tag">phase-change</span>
         </div>
         <div>
@@ -463,7 +202,7 @@
 
       <li class="pub" data-sel="0">
         <div class="media" style="background:var(--t-plum)">
-          <svg viewBox="0 0 160 100" aria-hidden="true"><g fill="none" stroke="#65505d" stroke-width="1.3">
+          <svg viewBox="0 0 160 100" aria-hidden="true"><g fill="none" stroke="#5f4b63" stroke-width="1.3">
             <path d="M10 70 h20 l4 -40 l4 40 h12 l4 -24 l4 24 h14 l4 -12 l4 12 h80" />
             <path d="M10 82 Q 50 70 80 82 T 150 82" stroke-opacity=".45"/></g></svg>
           <span class="tag">ultrafast</span>
@@ -516,7 +255,7 @@
           <svg viewBox="0 0 160 100" aria-hidden="true">
             <defs><radialGradient id="glow"><stop offset="0" stop-color="#c8432d" stop-opacity=".9"/><stop offset="1" stop-color="#c8432d" stop-opacity="0"/></radialGradient></defs>
             <circle cx="54" cy="46" r="22" fill="url(#glow)"/><circle cx="100" cy="36" r="16" fill="url(#glow)"/><circle cx="118" cy="66" r="19" fill="url(#glow)"/>
-            <g fill="#65505d"><circle cx="54" cy="46" r="4"/><circle cx="100" cy="36" r="3"/><circle cx="118" cy="66" r="3.5"/></g>
+            <g fill="#5f4b63"><circle cx="54" cy="46" r="4"/><circle cx="100" cy="36" r="3"/><circle cx="118" cy="66" r="3.5"/></g>
             <path d="M10 88 h140 M10 82 h140" stroke="#a9675f" stroke-width="1.1" opacity=".6"/></svg>
           <span class="tag">LEDs</span>
         </div>
@@ -534,7 +273,7 @@
           <svg viewBox="0 0 160 100" aria-hidden="true">
             <g fill="#3c78b4" fill-opacity=".7"><circle cx="40" cy="40" r="7"/><circle cx="62" cy="62" r="5"/><circle cx="30" cy="70" r="4"/></g>
             <g fill="#4f9a62" fill-opacity=".7"><circle cx="112" cy="36" r="7"/><circle cx="130" cy="62" r="5"/><circle cx="100" cy="70" r="4"/></g>
-            <path d="M74 48 h14 m-5 -5 l5 5 -5 5" stroke="#65505d" stroke-width="1.3" fill="none"/></svg>
+            <path d="M74 48 h14 m-5 -5 l5 5 -5 5" stroke="#5f4b63" stroke-width="1.3" fill="none"/></svg>
           <span class="tag">quantum dots</span>
         </div>
         <div>
@@ -586,7 +325,7 @@
     <h2>Journey</h2>
     <div class="col">
       <ul class="plain">
-        <li><span class="d">2026 – now</span><span><b style="font-weight:500">PhD, Electrical Engineering</b><span class="w">Ulsan National Institute of Science and Technology (UNIST), South Korea</span><span class="n">Group of Prof. Minho Choi · metasurfaces, inverse design, meta-optical sensing</span></span></li>
+        <li><span class="d">2026 – now</span><span><b style="font-weight:500">PhD, Electrical Engineering</b><span class="w">Ulsan National Institute of Science and Technology (UNIST), South Korea</span><span class="n">Group of Prof. Minho Choi · research topic: meta-optical photodetector</span></span></li>
         <li><span class="d">2020 – 2024</span><span><b style="font-weight:500">Researcher</b><span class="w">RMIT University, Melbourne, Australia</span><span class="n">ARC Centre of Excellence for Transformative Meta-Optical Systems (TMOS) · VO₂ and other phase-change materials for optics</span></span></li>
         <li><span class="d">2019 – 2020</span><span><b style="font-weight:500">Visiting Research Student</b><span class="w">Queensland University of Technology, Brisbane, Australia</span><span class="n">Master's thesis research · perovskites, plasma-assisted nanomaterial synthesis</span></span></li>
         <li><span class="d">2018 – 2020</span><span><b style="font-weight:500">M.Tech, Nanotechnology</b><span class="w">Vellore Institute of Technology, India</span><span class="n">CGPA 9.47 / 10 · second in class</span></span></li>
@@ -600,11 +339,11 @@
     <h2>Honors</h2>
     <div class="col">
       <ul class="plain">
-        <li><span class="d">2024</span><span>Best Volunteer Award, nominee <span class="n" style="display:inline">· RMIT Creatives</span></span></li>
-        <li><span class="d">2023</span><span>Apple Foundation Program <span class="n" style="display:inline">· built a prototype app with a team, RMIT University</span></span></li>
-        <li><span class="d">2022</span><span>Best Science Communicator <span class="n" style="display:inline">· TMOS Conference</span></span></li>
-        <li><span class="d">2020</span><span>Best Oral Presentation Award <span class="n" style="display:inline">· ACS Energy Letters, VCAN 2020</span></span></li>
-        <li><span class="d">GATE</span><span>Qualified <span class="n" style="display:inline">· All-India Rank 14,889 of 121,383</span></span></li>
+        <li><span class="d">2024</span><span>Best Volunteer Award, nominee <span class="n in">· RMIT Creatives</span></span></li>
+        <li><span class="d">2023</span><span>Apple Foundation Program <span class="n in">· built a prototype app with a team, RMIT University</span></span></li>
+        <li><span class="d">2022</span><span>Best Science Communicator <span class="n in">· TMOS Conference</span></span></li>
+        <li><span class="d">2020</span><span>Best Oral Presentation Award <span class="n in">· ACS Energy Letters, VCAN 2020</span></span></li>
+        <li><span class="d">GATE</span><span>Qualified <span class="n in">· All-India Rank 14,889 of 121,383</span></span></li>
       </ul>
     </div>
   </section>
@@ -624,68 +363,101 @@
   </section>
   </main>
 
-  <!-- ===== Footer ===== -->
   <footer>
     <blockquote>“If I have seen further it is by standing on the shoulders of Giants.”<cite>Isaac Newton, 1675</cite></blockquote>
     <div class="fine">
-      <a href="mailto:thesuvankarsen@gmail.com">thesuvankarsen [at] gmail [dot] com</a> · Ulsan<br>
+      <div class="social">
+        <a href="mailto:thesuvankarsen@gmail.com">email</a>
+        <a href="https://www.linkedin.com/in/SuvankarSen" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/suvsen" target="_blank" rel="noopener">github</a>
+        <!-- Uncomment and fill in when ready:
+        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">scholar</a>
+        <a href="https://orcid.org/YOUR-ORCID" target="_blank" rel="noopener">orcid</a>
+        <a href="CV.pdf" target="_blank" rel="noopener">cv</a>
+        -->
+      </div>
+      thesuvankarsen [at] gmail [dot] com · Ulsan<br>
       Made with light, mostly around 550&nbsp;nm.<br>
       © <span id="yr">2026</span> Suvankar Sen · updated October 2026
     </div>
   </footer>
 </div>
 
+<script src="site.js"></script>
+<script src="mindmap.js"></script>
 <script>
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Typewriter (Kylie). Edit the list freely. ---- */
-  const roles = [
-    "Suvankar Sen",
-    "Sky, to my friends",
-    "a PhD student at UNIST",
-    "an electrical engineer",
-    "a nanotechnologist",
-    "designing flat optics",
-    "an artist on the side"
-  ];
-  const typed = document.getElementById("typed");
-  if (!reduce) {
-    let r = 0, i = 0, del = false;
-    typed.textContent = "";
-    (function tick() {
-      const w = roles[r];
-      typed.textContent = w.slice(0, i);
-      let d = del ? 32 : 75 + Math.random() * 50;
-      if (!del && i === w.length) { del = true; d = 2200; }
-      else if (del && i === 0) { del = false; r = (r + 1) % roles.length; d = 380; }
-      i += del ? -1 : 1;
-      setTimeout(tick, d);
-    })();
-  }
-
-  /* ---- Rotating portrait with captions (Maksym frame) ---- */
+  /* ---- Portrait + typewriter, in sync ----
+     Each photo types its own phrase(s); the photo changes only after its last
+     phrase is erased, so text and picture always belong together. */
   const imgs = [...document.querySelectorAll("#frame img")];
-  const tag = document.getElementById("ftag"), cap = document.getElementById("fcap");
+  const slides = imgs.map(img => ({ img, say: (img.dataset.say || "").split("|").map(s => s.trim()).filter(Boolean) }));
+  const typed = document.getElementById("typed");
+  const count = document.getElementById("count");
   const dotsEl = document.getElementById("dots");
-  let cur = 0, timer;
-  const show = (n) => {
-    imgs[cur].classList.remove("on"); dots[cur].classList.remove("on"); dots[cur].setAttribute("aria-selected", "false");
-    cur = (n + imgs.length) % imgs.length;
-    imgs[cur].classList.add("on"); dots[cur].classList.add("on"); dots[cur].setAttribute("aria-selected", "true");
-    tag.textContent = imgs[cur].dataset.tag || ""; cap.textContent = imgs[cur].dataset.caption || "";
+  const pad = n => String(n).padStart(2, "0");
+  let cur = 0, timer = null, token = 0;
+
+  let dots = [];
+  const buildDots = () => {
+    dotsEl.innerHTML = "";
+    dots = slides.map((s, n) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("aria-label", "Photo " + (n + 1));
+      b.addEventListener("click", () => { show(n); play(n); });
+      dotsEl.appendChild(b); return b;
+    });
   };
-  const dots = imgs.map((img, n) => {
-    const b = document.createElement("button");
-    b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("aria-label", "Photo " + (n + 1));
-    b.addEventListener("click", () => { show(n); restart(); });
-    dotsEl.appendChild(b); return b;
+  buildDots();
+  // A photo that fails to load is dropped from the rotation (with its phrase).
+  const drop = s => {
+    const i = slides.indexOf(s); if (i < 1) return;
+    const showing = i === cur;
+    slides.splice(i, 1); imgs.splice(i, 1); s.img.remove();
+    if (cur > i) cur--;
+    if (showing) cur = 0;
+    buildDots(); imgs.forEach(im => im.classList.remove("on")); imgs[cur].classList.add("on"); dots[cur].classList.add("on");
+    count.textContent = pad(cur + 1) + " / " + pad(slides.length);
+    if (showing) play(cur);
+  };
+  slides.slice(1).forEach(s => {
+    if (s.img.complete && !s.img.naturalWidth) drop(s);
+    else s.img.addEventListener("error", () => drop(s));
   });
-  dots[0].classList.add("on");
-  const restart = () => { clearInterval(timer); if (!reduce && imgs.length > 1) timer = setInterval(() => { if (!document.hidden) show(cur + 1); }, 5000); };
-  restart();
+
+  function show(n) {
+    imgs[cur].classList.remove("on"); dots[cur].classList.remove("on"); dots[cur].setAttribute("aria-selected", "false");
+    cur = (n + slides.length) % slides.length;
+    imgs[cur].classList.add("on"); dots[cur].classList.add("on"); dots[cur].setAttribute("aria-selected", "true");
+    count.textContent = pad(cur + 1) + " / " + pad(slides.length);
+  }
+  show(0);
+
+  const wait = (ms, t) => new Promise(r => { timer = setTimeout(() => r(t === token), ms); });
+
+  async function play(start) {
+    const t = ++token; clearTimeout(timer);
+    let n = start;
+    if (reduce) { typed.textContent = slides[n].say[0] || ""; return; }
+    while (t === token) {
+      if (n !== cur) show(n);
+      const phrases = slides[n].say.length ? slides[n].say : [""];
+      for (const p of phrases) {
+        for (let i = 1; i <= p.length; i++) { typed.textContent = p.slice(0, i); if (!await wait(70 + Math.random() * 50, t)) return; }
+        if (!await wait(p ? 2300 : 3500, t)) return;
+        for (let i = p.length - 1; i >= 0; i--) { typed.textContent = p.slice(0, i); if (!await wait(30, t)) return; }
+        if (!await wait(320, t)) return;
+      }
+      n = (n + 1) % slides.length;
+    }
+  }
+  typed.textContent = "";
+  play(0);
   // If the headshot is missing locally, fall back to the live copy.
   imgs[0].addEventListener("error", function f() { this.removeEventListener("error", f); this.src = "https://suvsen.github.io/site/Profile-Pic.png"; });
+  document.addEventListener("visibilitychange", () => { if (document.hidden) { token++; clearTimeout(timer); } else play(cur); });
 
   /* ---- News: show more ---- */
   const more = document.getElementById("newsMore");
@@ -695,16 +467,15 @@
     else { document.querySelectorAll("#newsList li.was-hidden").forEach(li => li.classList.replace("was-hidden", "hidden")); more.textContent = "[show more]"; }
   });
 
-  /* ---- Publications: selected / all (Wenlong) ---- */
+  /* ---- Publications: selected / all ---- */
   const pubs = [...document.querySelectorAll("#pubs .pub")];
   const btns = document.querySelectorAll(".toggle button");
-  const filter = (f) => {
+  const filter = f => {
     pubs.forEach(p => p.classList.toggle("hidden", f === "sel" && p.dataset.sel !== "1"));
     btns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
   };
   btns.forEach(b => b.addEventListener("click", () => filter(b.dataset.f)));
   filter("sel");
-  // Links from News to a hidden paper switch to "show all" first.
   document.querySelectorAll('a[href^="#p-"]').forEach(a => a.addEventListener("click", () => {
     const t = document.querySelector(a.getAttribute("href")); if (t && t.classList.contains("hidden")) filter("all");
   }));
@@ -719,27 +490,6 @@
       new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(() => {}) : v.pause()), { threshold: .6 }).observe(v);
     }
   });
-
-  /* ---- Reveal on scroll ---- */
-  const rv = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && !reduce) {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .08 });
-    rv.forEach(el => io.observe(el));
-  } else rv.forEach(el => el.classList.add("in"));
-
-  /* ---- Theme toggle (remembers choice) ---- */
-  const root = document.documentElement, tb = document.getElementById("theme");
-  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
-  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  const label = () => { tb.textContent = isDark() ? "[light]" : "[dark]"; };
-  label();
-  tb.addEventListener("click", () => {
-    root.dataset.theme = isDark() ? "light" : "dark";
-    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
-    label();
-  });
-
-  document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
 </body>
