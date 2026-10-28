@@ -174,14 +174,14 @@ p { margin-bottom: 1rem; text-wrap: pretty; }
 .muted { color: var(--ink-2); }
 
 /* sidenotes */
-.sn-toggle { counter-increment: sidenote; cursor: pointer; }
-.sn-toggle::after { content: counter(sidenote); font-family: var(--mono); font-size: .68em; color: var(--rub); vertical-align: super; line-height: 0; margin-left: .1em; }
+.sn-toggle { cursor: pointer; }
+.sn-toggle::after { content: attr(data-n); font-family: var(--mono); font-size: .68em; color: var(--rub); vertical-align: super; line-height: 0; margin-left: .1em; }
 .sn-check { display: none; }
 .sidenote {
   float: right; clear: right; width: 52cqi; margin-right: -61cqi; margin-top: .2rem; margin-bottom: .8rem;
   font-size: .86rem; line-height: 1.45; color: var(--ink-2); position: relative; text-wrap: pretty;
 }
-.sidenote::before { content: counter(sidenote); position: absolute; left: -1.4rem; top: .1rem; font-family: var(--mono); font-size: .7rem; color: var(--rub); }
+.sidenote::before { content: attr(data-n); position: absolute; left: -1.4rem; top: .1rem; font-family: var(--mono); font-size: .7rem; color: var(--rub); }
 
 /* definition lists */
 dl.now > div, dl.threads > div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: .6rem 0; border-top: 1px solid var(--hair); }

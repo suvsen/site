@@ -21,6 +21,15 @@
     el.appendChild(svg);
   });
 
+  /* Number margin notes 1, 2, 3… within each section */
+  document.querySelectorAll("section").forEach(sec => {
+    sec.querySelectorAll(".sn-toggle").forEach((lab, i) => {
+      lab.dataset.n = i + 1;
+      const note = document.getElementById(lab.htmlFor)?.nextElementSibling;
+      if (note && note.classList.contains("sidenote")) note.dataset.n = i + 1;
+    });
+  });
+
   /* Reveal on scroll */
   const rv = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !reduce) {
