@@ -34,7 +34,8 @@
     { id: "flat", label: "Flatbands", g: "now", href: "#now", note: "Bands that barely change with angle, so light arriving from many directions gets the same treatment.", kw: "flatband flatbands band bands hamiltonian angle angular lattice" },
     { id: "inv", label: "Inverse design", g: "now", href: "#research", note: "State the goal, let an optimizer find the shape. The computer does the guessing.", kw: "inverse-design optimization optimisation optimizer optimiser gradient adjoint algorithm ai machine-learning" },
     { id: "rcwa", label: "RCWA simulations", g: "now", href: "#research", note: "Rigorous coupled-wave analysis: the solver that predicts how light meets a periodic structure.", kw: "rcwa simulation simulations solver python code numerical maxwell fdtd" },
-    { id: "ge", label: "Germanium at 1550 nm", g: "now", href: "#now", note: "The material for detecting telecom-wavelength light, built on silicon-on-insulator.", kw: "germanium ge 1550 telecom silicon-on-insulator soi swir c-band" },
+    { id: "ge", label: "Si–Ge at 1550 nm", g: "now", href: "#now", note: "Silicon–germanium, the material for detecting telecom C-band light.", kw: "germanium silicon-germanium si-ge sige ge 1550 telecom silicon-on-insulator soi swir c-band" },
+    { id: "dl", label: "Deep learning", g: "now", href: "#now", note: "Learning the machinery behind modern inverse design.", kw: "deep learning ai neural network networks machine" },
     { id: "pr", label: "Photoresponse setup", g: "now", href: "#now", note: "A test bench to watch a detector respond in under a nanosecond.", kw: "photoresponse time-resolved nanosecond response setup bench laser measurement" },
     { id: "hsi", label: "Hyperspectral imaging", g: "now", href: "#research", note: "Cameras that record the full spectrum of every pixel, not just red, green and blue.", kw: "hyperspectral spectral spectrum spectra imaging camera colour color rainbow" },
     { id: "pol", label: "Polarization", g: "now", href: "#research", note: "The orientation of light's oscillation, invisible to the eye and to ordinary cameras.", kw: "polarization polarisation polarimetric polarized chiral" },
@@ -62,7 +63,7 @@
   const LINKS = [
     ["core","meta"],["core","flat"],["core","ge"],["core","pr"],["core","inv"],
     ["meta","inv"],["meta","hsi"],["meta","pol"],["meta","pcm"],["meta","light"],
-    ["inv","rcwa"],["flat","rcwa"],["hsi","pol"],["ge","pr"],
+    ["inv","rcwa"],["flat","rcwa"],["hsi","pol"],["ge","pr"],["dl","inv"],
     ["pcm","vo2"],["pcm","sbse"],["pvk","sol"],["pvk","led"],["pvk","pl"],["pl","sol"],
     ["led","light"],["sol","light"],["glu","hsi"],["glu","ge"],["pvk","pcm"],["ufs","hsi"],["ufs","pcm"],
     ["light","art"],["art","hsi"],["art","phil"],["phil","quo"],
