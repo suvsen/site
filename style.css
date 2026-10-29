@@ -204,7 +204,7 @@ ul.news li.hidden { display: none; }
 /* research cards */
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; margin: 1.4rem 0 .4rem; }
 .thumb { aspect-ratio: 4 / 3; border: 1px solid var(--hair); overflow: hidden; border-radius: 4px; }
-.thumb svg { width: 100%; height: 100%; display: block; }
+.thumb svg, .thumb img { width: 100%; height: 100%; display: block; object-fit: contain; }
 .grid .cap { margin-top: .65rem; }
 .grid .m { display: block; font-family: var(--mono); font-size: .7rem; color: var(--grey); margin-bottom: .25rem; }
 .grid .t { font-size: 1.12rem; font-weight: 500; line-height: 1.3; }
